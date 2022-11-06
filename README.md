@@ -1,3 +1,5 @@
+![CI Status](https://github.com/Vermelho-Rosas-DS/What-Should-I-Pick/actions/workflows/CI.yml/badge.svg)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
