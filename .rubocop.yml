@@ -1,0 +1,19 @@
+require: rubocop-rails
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
