@@ -15,14 +15,14 @@ jobs:
 
       - name: Analyze code
         run: bundle exec rubocop
-    brakeman:
-      name: Brakeman
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+  brakeman:
+    name: Brakeman
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Analyze code
-          uses: artplan1/brakeman-action@v1.2.1
-          with:
-            flags: "--color"
+      - name: Analyze code
+        uses: artplan1/brakeman-action@v1.2.1
+        with:
+          flags: "--color"
