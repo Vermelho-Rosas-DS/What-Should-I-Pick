@@ -17,3 +17,6 @@ Style/RedundantFetchBlock:
 
 Style/SymbolArray:
   Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
