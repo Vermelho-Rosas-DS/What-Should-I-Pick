@@ -44,6 +44,12 @@ Crie o banco de dados da aplicação
 ```bash
 bin/rails db:create
 ```
+
+Rode as migrações
+```bash
+bin/rails db:migrate
+```
+
 ## Execução
 
 Suba a aplicação
