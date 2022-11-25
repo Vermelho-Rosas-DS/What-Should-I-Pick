@@ -21,6 +21,10 @@ Entre dentro do repositório
 ```bash
 cd What-Should-I-Pick
 ```
+Instalar o bundler
+```bash
+gem install bundler
+```
 
 Rode bundler
 ```bash
