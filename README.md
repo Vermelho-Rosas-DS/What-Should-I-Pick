@@ -64,4 +64,6 @@ A aplicação estará disponível no endereço `localhost:3000`
 | Nome | Matrícula | Role | Github |
 | :--: | :-------: | :--: | :----: |
 | Victor Gonçalves | 18/0055241 | Duque | [@VictorJorgeFGA](https://github.com/VictorJorgeFGA) |
+| Victor Gomes | 22/1022140 | Cavaleiro | [@VictorGCOSTA](https://github.com/VictorGCOSTA) |
+
 
