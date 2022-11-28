@@ -1,22 +1,62 @@
 require: rubocop-rails
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
+AllCops:
+  NewCops: enable
+  Exclude:
+    - './bin/bundle'
+    - './bin/importmap'
+    - './bin/rails'
+    - './bin/rake'
+    - './bin/setup'
+    - './config/puma.rb'
+    - './config.ru'
+    - './vendor/**/*'
+    - './db/schema.rb'
+    - './db/migrate/*'
 
 Style/Documentation:
   Enabled: false
-
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/PerlBackrefs:
+  Enabled: false
 Style/GlobalStdStream:
   Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/RedundantFetchBlock:
-  Enabled: false
-
 Style/SymbolArray:
   Enabled: false
-
-Style/EmptyMethod:
+Style/ClassAndModuleChildren:
+  Enabled: false
+Security/JSONLoad:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - './test/**/*.rb'
+Rails/Output:
+  Exclude:
+    - './lib/tasks/*'
+    - './db/seeds.rb'
+Rails/FilePath:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 100
+Layout/LineLength:
+  Max: 165
+Metrics/PerceivedComplexity:
+  Max: 15
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Max: 15
+Metrics/AbcSize:
   Enabled: false
