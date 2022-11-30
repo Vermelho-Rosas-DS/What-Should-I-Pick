@@ -26,19 +26,24 @@ Instalar o bundler
 gem install bundler
 ```
 
-Rode bundler
-```bash
-bundle install
-```
-
 Instale o Postgres
 ```bash
-sudo apt install postgresql-11 libpq-dev
+sudo apt install postgresql libpq-dev
 ```
 ```bash
 sudo -u postgres createuser seu_nome_de_usuario -s
 ```
 > Obs.: coloque o nome que você preferir no lugar de _seu_nome_de_usuario_
+
+Rode bundler
+```bash
+bundle install
+```
+
+Dê um refresh no ambiente Ruby
+```bash
+rbenv rehash
+```
 
 Crie o banco de dados da aplicação
 ```bash
