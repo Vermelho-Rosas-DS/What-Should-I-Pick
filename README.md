@@ -21,25 +21,40 @@ Entre dentro do repositório
 ```bash
 cd What-Should-I-Pick
 ```
-
-Rode bundler
+Instalar o bundler
 ```bash
-bundle install
+gem install bundler
 ```
 
 Instale o Postgres
 ```bash
-sudo apt install postgresql-11 libpq-dev
+sudo apt install postgresql libpq-dev
 ```
 ```bash
 sudo -u postgres createuser seu_nome_de_usuario -s
 ```
 > Obs.: coloque o nome que você preferir no lugar de _seu_nome_de_usuario_
 
+Rode bundler
+```bash
+bundle install
+```
+
+Dê um refresh no ambiente Ruby
+```bash
+rbenv rehash
+```
+
 Crie o banco de dados da aplicação
 ```bash
 bin/rails db:create
 ```
+
+Rode as migrações
+```bash
+bin/rails db:migrate
+```
+
 ## Execução
 
 Suba a aplicação
@@ -54,5 +69,5 @@ A aplicação estará disponível no endereço `localhost:3000`
 | Nome | Matrícula | Role | Github |
 | :--: | :-------: | :--: | :----: |
 | Victor Gonçalves | 18/0055241 | Duque | [@VictorJorgeFGA](https://github.com/VictorJorgeFGA) |
+| Victor Gomes | 22/1022140 | Cavaleiro | [@VictorGCOSTA](https://github.com/VictorGCOSTA) |
 | Elias Oliveira | 22/1007706 | Cavaleiro | [@EliasOliver21](https://github.com/EliasOliver21) |
-
