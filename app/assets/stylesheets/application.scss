@@ -13,5 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+ $primary: #0000;
+ .purple{
+   
+    background-color: #800080;
+ }
 @import "bootstrap";
