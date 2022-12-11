@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  key: 1
+  title: MyString
+  title_pt_br: MyString
+  title_es: MyString
+  blurb: MyText
+  blurb_pt_br: MyText
+  blurb_es: MyText
+  lore: MyText
+  lore_pt_br: MyText
+  lore_es: MyText
+  difficulty: 1
+  role: MyString
+  secondary_role: MyString
+  enemy_tips: MyText
+  enemy_tips_pt_br: MyText
+  enemy_tips_es: MyText
+  ally_tips: MyText
+  ally_tips_pt_br: MyText
+  ally_tips_es: MyText
+  name_id: MyString
+
+two:
+  name: MyString
+  key: 1
+  title: MyString
+  title_pt_br: MyString
+  title_es: MyString
+  blurb: MyText
+  blurb_pt_br: MyText
+  blurb_es: MyText
+  lore: MyText
+  lore_pt_br: MyText
+  lore_es: MyText
+  difficulty: 1
+  role: MyString
+  secondary_role: MyString
+  enemy_tips: MyText
+  enemy_tips_pt_br: MyText
+  enemy_tips_es: MyText
+  ally_tips: MyText
+  ally_tips_pt_br: MyText
+  ally_tips_es: MyText
+  name_id: MyString

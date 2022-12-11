@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_195011) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_223150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "champions", force: :cascade do |t|
+    t.string "name"
+    t.integer "key"
+    t.string "title"
+    t.string "title_pt_br"
+    t.string "title_es"
+    t.text "blurb"
+    t.text "blurb_pt_br"
+    t.text "blurb_es"
+    t.text "lore"
+    t.text "lore_pt_br"
+    t.text "lore_es"
+    t.integer "difficulty"
+    t.string "role"
+    t.string "secondary_role"
+    t.text "enemy_tips"
+    t.text "enemy_tips_pt_br"
+    t.text "enemy_tips_es"
+    t.text "ally_tips"
+    t.text "ally_tips_pt_br"
+    t.text "ally_tips_es"
+    t.string "name_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "statistics", force: :cascade do |t|
     t.integer "tier"
