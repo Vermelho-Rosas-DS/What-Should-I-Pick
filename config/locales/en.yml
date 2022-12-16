@@ -30,6 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  navbar:
+    home: 'HOME'
+    recommendations: 'RECOMMENDATIONS'
+    champions: 'CHAMPIONS'
+    search: 'SEARCH'
+    champions_name: 'Champion''s name'
+    language: 'LANGUAGE'
+    english: 'English'
+    spanish: 'Español'
+    portuguese: 'Português'
+
   activerecord:
     errors:
       messages:

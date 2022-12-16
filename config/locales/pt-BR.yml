@@ -1,5 +1,16 @@
 #Portuguese (Brazil) translations for rails
 pt-BR:
+  navbar:
+    home: 'INICIO'
+    recommendations: 'RECOMENDAÇÕES'
+    champions: 'CAMPEÕES'
+    search: 'BUSCAR'
+    champions_name: 'Nome do campeão'
+    language: 'IDIOMA'
+    english: 'English'
+    spanish: 'Español'
+    portuguese: 'Português'
+    
   activerecord:
     errors:
       messages:

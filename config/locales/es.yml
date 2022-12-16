@@ -1,5 +1,16 @@
 #Spanish translation for Rails
 es:
+  navbar:
+    home: 'INICIO'
+    recommendations: 'RECOMENDACIONES'
+    champions: 'CAMPEONES'
+    search: 'BUSCAR'
+    champions_name: 'Nombre del campeón'
+    language: 'IDIOMA'
+    english: 'English'
+    spanish: 'Español'
+    portuguese: 'Português'
+    
   activerecord:
     errors:
       messages:
