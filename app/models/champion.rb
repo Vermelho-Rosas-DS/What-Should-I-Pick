@@ -1,8 +1,8 @@
 class Champion < ApplicationRecord
-  has_many :statistics, dependent: :nullify
-  attr_accessor most_frequent_statistic:
-    
-    def most_frequent_statistic()
-        most_frequent_statistic: = self.statistics.order(:pick_rate :desc).first
-    end
+  has_many :statistics, dependent: :destroy
+  attr_accessor :most_frequent_statistic
+
+  def update_most_frequent_statistic
+    @most_frequent_statistic = statistics.order(pick_rate: :desc).first
+  end
 end
