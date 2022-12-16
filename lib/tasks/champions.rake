@@ -6,12 +6,12 @@ namespace :champions do
   desc 'TODO'
   task champions_task: :environment do
     res.each do |name,|
-      champ = HTTParty.get("http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion/#{name}.json") 
+      champ = HTTParty.get("http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion/#{name}.json")
       data = JSON.parse(champ.body)
       data = data.with_indifferent_access
       data = data['data']
       data = data[name]
-      champ = Champion.create(
+      Champion.create(
         {
           name: data['name'],
           key: data['key'],
