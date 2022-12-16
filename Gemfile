@@ -77,3 +77,5 @@ end
 
 gem 'bootstrap'
 gem 'sassc-rails'
+
+gem 'rails-i18n', '~> 7.0.0'
