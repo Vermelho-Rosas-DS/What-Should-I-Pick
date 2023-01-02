@@ -98,6 +98,8 @@ GEM
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    flag-icons-rails (3.4.6.1)
+      sass-rails
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -206,6 +208,8 @@ GEM
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -264,6 +268,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  flag-icons-rails
   httparty
   importmap-rails
   jbuilder
