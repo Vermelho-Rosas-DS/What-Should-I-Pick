@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     root 'application#home'
   end
+  get 'inicio' => 'welcome#index'
 end
