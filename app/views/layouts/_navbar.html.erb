@@ -27,9 +27,9 @@
                 <%=t('navbar.language')%>
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="/pt-BR"><span class="flag-icon flag-icon-br"></span>&nbsp<%=t('navbar.portuguese')%></a></li>
-                <li><a class="dropdown-item" href="/es"><span class=" flag-icon flag-icon-es"></span>&nbsp<%=t('navbar.spanish')%></a></li>
-                <li><a class="dropdown-item" href="/en"><span class="flag-icon flag-icon-us"></span>&nbsp<%=t('navbar.english')%></a></li>
+                <li><a class="dropdown-item" href="<%=current_path_translated_to('pt-BR')%>"><span class="flag-icon flag-icon-br"></span>&nbsp<%=t('navbar.portuguese')%></a></li>
+                <li><a class="dropdown-item" href="<%=current_path_translated_to(:es)%>"><span class=" flag-icon flag-icon-es"></span>&nbsp<%=t('navbar.spanish')%></a></li>
+                <li><a class="dropdown-item" href="<%=current_path_translated_to(:en)%>"><span class="flag-icon flag-icon-us"></span>&nbsp<%=t('navbar.english')%></a></li>
               </ul>
             </li>
           </ul>
