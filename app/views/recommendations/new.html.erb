@@ -1,0 +1,10 @@
+
+<%= form_tag (recommendations_path) do %>
+    <strong>Elo</strong>
+    <%= text_field_tag :tier%>
+    <strong>Rota</strong>
+    <%= text_field_tag :position%>
+    <strong>Role</strong>
+    <%= text_field_tag :role%>
+    <%= submit_tag "Enviar"%>
+<% end %>
