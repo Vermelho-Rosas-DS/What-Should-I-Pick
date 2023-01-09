@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  champion_key: 1
+  win_rate: 1.5
+  pick_rate: 1.5
+  feedback_score: 1
+  feedback_text: MyText
+
+two:
+  champion_key: 1
+  win_rate: 1.5
+  pick_rate: 1.5
+  feedback_score: 1
+  feedback_text: MyText
