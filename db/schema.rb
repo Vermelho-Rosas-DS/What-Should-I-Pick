@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_234434) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_021604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_234434) do
     t.text "ally_tips_pt_br"
     t.text "ally_tips_es"
     t.string "name_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "champion_key"
+    t.float "win_rate"
+    t.float "pick_rate"
+    t.integer "feedback_score", default: 0
+    t.text "feedback_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
