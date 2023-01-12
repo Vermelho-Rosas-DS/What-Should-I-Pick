@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_021604) do
     t.integer "champion_key"
     t.float "win_rate"
     t.float "pick_rate"
-    t.integer "feedback_score", default: 0
+    t.integer "feedback_score"
     t.text "feedback_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
