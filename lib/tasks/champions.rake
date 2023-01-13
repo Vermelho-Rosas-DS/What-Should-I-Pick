@@ -26,7 +26,7 @@ namespace :champions do
           ally_tips: data['allytips'].join(' ')
         }
       )
-      puts "Could not save champion #{name}" if !champion.persisted?
+      puts "Could not save champion #{name}" unless champion.persisted?
     end
   end
 end
