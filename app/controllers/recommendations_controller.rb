@@ -7,9 +7,10 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    estats = Statistic.where(tier: params[:tier], position: params[:position], role: params[:role]).order(:win_rate).last
-    estats = estats.champion_key
-    @champ = Champion.where(key: estats).first
+    stats = Statistic.where(tier: params[:tier], position: params[:position], role: params[:role]).order(:win_rate).last
+    Rails.logger.debug stats.class
+    stats = stats.champion_key
+    @champ = Champion.where(key: stats).first
     redirect_to recommendations_path(id: @champ.id)
   end
 end
