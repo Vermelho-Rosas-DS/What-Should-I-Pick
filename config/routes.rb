@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pt-BR|es/ do
     # Defines the root path route ("/")
     resource :recommendations, only: [:create, :new, :show]
+    resources :champions, only: [:index, :show]
     root 'application#home'
   end
 end
