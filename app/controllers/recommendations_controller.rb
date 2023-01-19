@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   def show
-    @champ = Champion.find(params[:id]).name
+    champinview = Recommendation.find(params[:id]).name
+    @champ = Champion.where(name: champinview).first
   end
 
   def new
@@ -13,7 +14,7 @@ class RecommendationsController < ApplicationController
       @champ = Champion.where(key: champ_key).first
       @recommendation = Recommendation.create(champion_key: estats.champion_key, win_rate: estats.win_rate, pick_rate: estats.pick_rate)
       if @recommendation.persisted?
-        redirect_to recommendations_path(id: @champ.id)
+        redirect_to recommendations_path(id: @recommendation.id)
       else
         redirect_to root_path
       end
