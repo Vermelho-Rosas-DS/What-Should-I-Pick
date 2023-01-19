@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # Defines the locale scope
   scope '(:locale)', locale: /en|pt-BR|es/ do
-    resource :recommendations, only: [:create, :new, :show]
+    resources :recommendations, except: [:index, :destroy]
     root 'application#home'
   end
 end
