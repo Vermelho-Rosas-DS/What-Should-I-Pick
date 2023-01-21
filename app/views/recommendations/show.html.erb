@@ -1,1 +1,9 @@
-<h1 style="color: #000;"><%= @champ%> </h1>
+<h1 style="color: #000;"><%= @champ.name %></h1>
+<h4 style="color: #000;"><%= @champ.title %></h4>
+<p style="color: #000;"><%= @champ.blurb %></p>
+<h4 style="color: #000;">Dicas!</h4>
+<p style="color: #000;"><%= @champ.ally_tips %></p>
+<h4 style="color: #000;">Winrate</h4>
+<p style="color: #000;"><%= @recommendation.win_rate %></p>
+<h4 style="color: #000;">Pickrate</h4>
+<p style="color: #000;"><%= @recommendation.pick_rate %></p>

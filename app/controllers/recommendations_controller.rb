@@ -1,9 +1,8 @@
 class RecommendationsController < ApplicationController
   def show
     recommendation = Recommendation.find(params[:id])
-    @champ = Champion.where(key: recommendation.champion_key) 
-    #@recommendation = Recommendation.find(params[:id]).champion_key       
-    #redirect_to recommendations_path(id: @recommendation.champion_key)
+    @recommendation = recommendation
+    @champ = Champion.where(key: recommendation.champion_key).first
   end
 
   def new
@@ -15,7 +14,6 @@ class RecommendationsController < ApplicationController
       champ_key = estats.champion_key
       @champ = Champion.where(key: champ_key).first
       @recommendation = Recommendation.create(champion_key: estats.champion_key, win_rate: estats.win_rate, pick_rate: estats.pick_rate)
-      binding pry
       if @recommendation.persisted?
         redirect_to recommendations_path(id: @recommendation.champion_key)
       else
