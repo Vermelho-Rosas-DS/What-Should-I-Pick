@@ -1,0 +1,26 @@
+// Dark card container
+.dark-card {
+    background-color: #1E1828;
+    border-style: solid;
+    border-color: #2D263E;
+    border-width: 3px;
+    height: 100% !important;
+}
+
+
+// Card icon position and shape
+.card-icon {
+    margin-top: -90px;
+    background-color: #1E1828;
+    padding: 20px;
+    width: 100px;
+}
+
+// Turn card colored on hover
+.hoverable-grayscaled-card {
+    filter: grayscale(100%);
+    &:hover {
+        filter: grayscale(0%);
+        transition: 300ms;
+    }
+}
