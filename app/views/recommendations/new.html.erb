@@ -10,7 +10,7 @@
                     <% %w[top jungle mid bot support].each do |lane| %>
                         <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="<%= lane == 'bot' ? 'adc' : lane %>">
                             <div class="d-flex flex-column align-items-center justify-content-around">
-                                <%= image_tag("#{lane}_image.jpg", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <%= image_tag("#{lane}_image.jpg", class: 'card-image img-fluid', alt: "") %>
                                 <%= image_tag("#{lane}_icon.svg", class: 'card-icon rounded-circle', alt: "") %>
                                 <section class="mx-4 mb-4 text-center">
                                     <h2><%= t("lanes.#{lane}.name") %></h2>

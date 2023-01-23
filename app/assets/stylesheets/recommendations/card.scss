@@ -16,6 +16,11 @@
     width: 100px;
 }
 
+.card-image {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
 // Turn card colored on hover
 .hoverable-grayscaled-card {
     filter: grayscale(100%);
