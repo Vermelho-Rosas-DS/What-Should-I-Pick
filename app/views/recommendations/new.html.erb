@@ -1,5 +1,5 @@
 <div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
-    <div class="container-fluid top-gradient px-0" data-controller="newrecommendationform">
+    <div class="container-fluid top-gradient px-0" data-controller="new-recommendation-form">
         <div class="d-flex flex-column align-items-center justify-content-center options-section my-5">
             <div class="typewriter my-5">
                 <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
@@ -7,60 +7,21 @@
             <div class="container my-3">
                 <div class="grid-container position-options-grid">
                     <!-- CARD -->
-                    <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('top_image.jpg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <%= image_tag('top_icon.svg', class: 'card-icon rounded-circle', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("lanes.top.name") %></h2>
-                                <p class="fw-lighter"><%= t("lanes.top.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('jungle_image.jpg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <%= image_tag('jungle_icon.svg', class: 'card-icon rounded-circle', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("lanes.jungle.name") %></h2>
-                                <p class="fw-lighter"><%= t("lanes.jungle.description") %></p>
-                            </section>
-                        </div>
-                    </a><!-- CARD -->
-                    <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('mid_image.jpg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <%= image_tag('mid_icon.svg', class: 'card-icon rounded-circle', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("lanes.mid.name") %></h2>
-                                <p class="fw-lighter"><%= t("lanes.mid.description") %></p>
-                            </section>
-                        </div>
-                    </a><!-- CARD -->
-                    <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('bot_image.jpg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <%= image_tag('bot_icon.svg', class: 'card-icon rounded-circle', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("lanes.bot.name") %></h2>
-                                <p class="fw-lighter"><%= t("lanes.bot.description") %></p>
-                            </section>
-                        </div>
-                    </a><!-- CARD -->
-                    <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('support_image.jpg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <%= image_tag('support_icon.svg', class: 'card-icon rounded-circle', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("lanes.support.name") %></h2>
-                                <p class="fw-lighter"><%= t("lanes.support.description") %></p>
-                            </section>
-                        </div>
-                    </a>
+                    <% %w[top jungle mid bot support].each do |lane| %>
+                        <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="<%= lane == 'bot' ? 'adc' : lane %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("#{lane}_image.jpg", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <%= image_tag("#{lane}_icon.svg", class: 'card-icon rounded-circle', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("lanes.#{lane}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("lanes.#{lane}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
                 </div>
             </div>
-            <a href="#choose-elo" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="newrecommendationform#selectPosition" data-newrecommendationform-target="position" value="all"><%= t('lanes.no_lane') %></a>
+            <a href="#choose-elo" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="all"><%= t('lanes.no_lane') %></a>
         </div>
         <div id="choose-elo" class="d-flex flex-column align-items-center justify-content-center options-section my-5">
             <div class="typewriter my-5">
@@ -68,106 +29,17 @@
             </div>
             <div class="container my-3">
                 <div class="grid-container tier-options-grid">
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Unranked.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.unranked.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.unranked.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Iron.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.iron.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.iron.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Bronze.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.bronze.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.bronze.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Silver.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.silver.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.silver.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Gold.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.gold.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.gold.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Platinum.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.platinum.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.platinum.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Diamond.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.diamond.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.diamond.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Master.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.master.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.master.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Grandmaster.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.grandmaster.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.grandmaster.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('Emblem_Challenger.png', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("tiers.challenger.name") %></h2>
-                                <p class="fw-lighter"><%= t("tiers.challenger.description") %></p>
-                            </section>
-                        </div>
-                    </a>
+                    <% %w[unranked iron bronze silver gold platinum diamond master grandmaster challenger].each do |tier| %>
+                        <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectTier" data-new-recommendation-form-target="tier" value="<%= tier %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("Emblem_#{tier.capitalize}.png", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("tiers.#{tier}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("tiers.#{tier}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -177,76 +49,27 @@
             </div>
             <div class="container my-3">
                 <div class="grid-container role-options-grid">
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('tank_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.tank.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.tank.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('marksman_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.marksman.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.marksman.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('support_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.support.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.support.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('fighter_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.fighter.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.fighter.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('assassin_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.assassin.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.assassin.description") %></p>
-                            </section>
-                        </div>
-                    </a>
-                    <!-- CARD -->
-                    <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4">
-                        <div class="d-flex flex-column align-items-center justify-content-around">
-                            <%= image_tag('mage_role_image.svg', class: 'card-image my-3 img-fluid', alt: "") %>
-                            <section class="mx-4 mb-4 text-center">
-                                <h2><%= t("roles.mage.name") %></h2>
-                                <p class="fw-lighter"><%= t("roles.mage.description") %></p>
-                            </section>
-                        </div>
-                    </a>
+                    <% %w[tank marksman support fighter assassin mage].each do |role| %>
+                        <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectRole" data-new-recommendation-form-target="role" value="<%= role %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("#{role}_role_image.svg", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("roles.#{role}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("roles.#{role}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
                 </div>
             </div>
-            <a href="#submit-recommendation" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card">
+            <a href="#submit-recommendation" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="new-recommendation-form#selectRole" data-new-recommendation-form-target="role" value="all">
                 <%= t('roles.no_role') %>
             </a>
         </div>
         <div class="container-sm">
             <div id="submit-recommendation" class="d-flex flex-column align-items-center justify-content-center options-section">
                 <h1 class="display-4 fw-bold text-center"><%= t('recommendations.submit_text') %></h1>
-                <a class="btn col-6 btn-lg btn-hover color-3 text-uppercase fw-bold text-white text-wrap">
+                <a id="submit-recommendation-request-button" class="btn col-6 btn-lg btn-hover disabled color-3 text-uppercase fw-bold text-white text-wrap" aria-disabled="true" data-action="new-recommendation-form#submitRecommendationRequest">
                     <%= t('recommendations.submit_button_text') %>
                 </a>
             </div>
