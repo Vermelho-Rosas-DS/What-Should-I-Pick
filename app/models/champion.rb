@@ -5,4 +5,5 @@ class Champion < ApplicationRecord
   def update_most_frequent_statistic
     @most_frequent_statistic = statistics.order(pick_rate: :desc).first
   end
+  validates :champion, uniqueness: { scope: [:key] }
 end
