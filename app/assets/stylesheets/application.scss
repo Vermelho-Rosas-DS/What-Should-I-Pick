@@ -13,9 +13,213 @@
  *= require_tree .
  *= require_self
  */
- $primary: #0000;
- .purple{
-   
-    background-color: #800080;
+
+ @charset 'utf-8';
+
+ $white:    #fff !default;
+ $black:    #000 !default;
+
+ $blue:      #007bff !default;
+ $indigo:    #6610f2 !default;
+ $purple:    #6f42c1 !default;
+ $pink:      #e83e8c !default;
+ $red:       #dc3545 !default;
+ $orange:    #fd7e14 !default;
+ $yellow:    #ffc107 !default;
+ $green:     #28a745 !default;
+ $teal:      #20c997 !default;
+ $cyan:      #17a2b8 !default;
+ $gray:      #BAB1AD !default;
+ $gray-dark: #403734 !default;
+ $w-purple:  #653cb3 !default;
+
+ $color-variants: (
+     100:  -10%,
+     200:  -25%,
+     300:  -50%,
+     400:  -75%,
+     500:  100%,
+     600:   75%,
+     700:   50%,
+     800:   25%,
+     900:   15%
+ );
+
+ $colors: () !default;
+ $colors: map-merge((
+ "blue":       $blue,
+ "indigo":     $indigo,
+ "purple":     $purple,
+ "pink":       $pink,
+ "red":        $red,
+ "orange":     $orange,
+ "yellow":     $yellow,
+ "green":      $green,
+ "teal":       $teal,
+ "cyan":       $cyan,
+ "white":      $white,
+ "gray":       $gray,
+ "gray-dark":  $gray-dark,
+ "w-purple":   $w-purple
+ ), $colors);
+
+ //  Add color variants to $colors
+ @each $color-name, $color in $colors {
+     @each $variant-name, $percent in $color-variants {
+         $mix-color: if($percent < 0%, white, black);
+         $colors: map-merge($colors, ($color-name+'-'+$variant-name: mix($color, $mix-color, abs($percent))));
+     }
  }
+
+ /* remap grays */
+
+ $gray-100: map-get($colors, gray-100);
+ $gray-200: map-get($colors, gray-200);
+ $gray-300: map-get($colors, gray-300);
+ $gray-400: map-get($colors, gray-400);
+ $gray-500: map-get($colors, gray-500);
+ $gray-600: map-get($colors, gray-600);
+ $gray-700: map-get($colors, gray-700);
+ $gray-800: map-get($colors, gray-800);
+ $gray-900: map-get($colors, gray-900);
+
+ $enable-hover-media-query: true;
+
+ /* Bootstrap 4 mixins - no change */
+
+ @mixin hover {
+ // TODO: re-enable along with mq4-hover-shim
+ //  @if $enable-hover-media-query {
+ //    // See Media Queries Level 4: https://drafts.csswg.org/mediaqueries/#hover
+ //    // Currently shimmed by https://github.com/twbs/mq4-hover-shim
+ //    @media (hover: hover) {
+ //      &:hover { @content }
+ //    }
+ //  }
+ //  @else {
+     &:hover { @content; }
+ //  }
+ }
+
+ @mixin hover-focus {
+ @if $enable-hover-media-query {
+     &:focus {
+     @content;
+     }
+     @include hover { @content; }
+ } @else {
+     &:focus,
+     &:hover {
+     @content;
+     }
+ }
+ }
+
+ @mixin text-emphasis-variant($parent, $color) {
+ #{$parent} {
+     color: $color !important;
+ }
+ a#{$parent} {
+     @include hover-focus {
+     color: darken($color, 10%) !important;
+     }
+ }
+ }
+
+ @mixin bg-variant($parent, $color) {
+ #{$parent} {
+     background-color: $color !important;
+ }
+ a#{$parent} {
+     @include hover-focus {
+     background-color: darken($color, 10%) !important;
+     }
+ }
+ }
+
+ // Color contrast - from Bootstrap 4 utilities - no change
+ @function color-yiq($color) {
+     $r: red($color);
+     $g: green($color);
+     $b: blue($color);
+
+     $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+     @if ($yiq >= 150) {
+     @return #111;
+ } @else {
+     @return #fff;
+ }
+ }
+
+ /* from Bootstrap 4 utilities - replaced $theme-colors with $colors */
+
+ // text colors
+ @each $color, $value in $colors {
+     @include text-emphasis-variant(".text-#{$color}", $value);
+ }
+
+ // background colors
+ @each $color, $value in $colors {
+     @include bg-variant(".bg-#{$color}", $value);
+ }
+
+ // background text contrast
+ @each $color, $value in $colors {
+     .bg-#{$color} {
+         color: color-yiq($value);
+     }
+ }
+
+ // border colors
+ @each $color, $value in $colors {
+     .border-#{$color} {
+         border-color: $value !important;
+     }
+ }
+
+ @import "gradient_transition_button";
+
+ // Page gradient
+ .top-gradient {
+     background: linear-gradient(180deg, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.8) 45%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.4) 100%);
+ }
+
+ .shade-bg {
+     background: rgba(black, .7);
+ }
+
+ $primary:   map-get($colors, indigo-500);
+ $secondary: map-get($colors, indigo-400);
+ $dark:      map-get($colors, w-purple-800);
+ $light:     map-get($colors, w-purple-200);
+ $success:   map-get($colors, green-600);
+ $warning:   map-get($colors, yellow-600);
+ $danger:    map-get($colors, red-600);
+
+ $body-bg:    $dark;
+ $body-color: $light;
+
+ $list-group-color:                  $light;
+ $list-group-bg:                     map-get($colors, indigo-900); //#110720;
+ $list-group-border-color:           rgba($dark, .9);
+ $list-group-border-width:           2px;
+ $list-group-hover-bg:               $secondary;
+ $list-group-action-hover-color:     #FFF;
+
+ .fa {
+     font-family: 'FontAwesome';
+ }
+
 @import "bootstrap";
+@import "flag-icon";
+@import "font-awesome";
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+
+@import "recommendations/card";
+@import "recommendations/section";
+@import "typewriter";
+
+.grid-container {
+    display: grid;
+}

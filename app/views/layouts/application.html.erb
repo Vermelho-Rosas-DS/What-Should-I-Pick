@@ -10,9 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <%=render"layouts/navbar"%>
-
-  <%=yield%>
+  <body style="min-height: 100vh">
+    <%= render 'shared/navbar' %>
+    <%= yield %>
   </body>
 </html>

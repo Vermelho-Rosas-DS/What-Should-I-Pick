@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+
+  .conteudo-titulo {
+    position: absolute;
+    width: 308px;
+    height: 80px;
+    left: 450px;
+    top: 250px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 500;
+    font-size: 70px;
+    color:#e4e4e4
+  }
+  .conteudo-botao{
+    position: absolute;
+    width: 308px;
+    height: 80px;
+    right: 550px;
+    top: 340px;
+    background-color: #472e8d;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  .conteudo-lista{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 570px;
+    left: 422px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
