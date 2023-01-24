@@ -17,15 +17,6 @@ Clone o repositório em sua máquina
 git clone https://github.com/Vermelho-Rosas-DS/What-Should-I-Pick.git
 ```
 
-Entre dentro do repositório
-```bash
-cd What-Should-I-Pick
-```
-Instalar o bundler
-```bash
-gem install bundler
-```
-
 Instale o Postgres
 ```bash
 sudo apt install postgresql libpq-dev
@@ -34,6 +25,15 @@ sudo apt install postgresql libpq-dev
 sudo -u postgres createuser seu_nome_de_usuario -s
 ```
 > Obs.: coloque o nome que você preferir no lugar de _seu_nome_de_usuario_
+
+Entre dentro do repositório
+```bash
+cd What-Should-I-Pick
+```
+Instalar o bundler
+```bash
+gem install bundler
+```
 
 Rode bundler
 ```bash
@@ -53,6 +53,15 @@ bin/rails db:create
 Rode as migrações
 ```bash
 bin/rails db:migrate
+```
+
+Popule o banco de dados
+```bash
+rails riot:fetch_champions
+```
+
+```bash
+rails opgg:fetch_statistics
 ```
 
 ## Execução
