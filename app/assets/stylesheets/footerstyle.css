@@ -3,7 +3,6 @@
 }
 
 html, body {
-    height: 100%;
     padding: 0px;
     margin: 0px;
     background: #f6f6f6;
@@ -24,7 +23,7 @@ html, body {
 }
 
 .footer-content {
-   
+
     height: 250px;
     display: flex;
 }
@@ -32,7 +31,7 @@ html, body {
 .footer-section {
     flex: 1;
     padding: 25px;
-    
+
     text-align: center;
 }
 

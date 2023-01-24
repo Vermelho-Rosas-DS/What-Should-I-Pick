@@ -1,6 +1,6 @@
-namespace :statistic do
+namespace :opgg do
   desc 'TODO'
-  task statistics: :environment do
+  task fetch_statistics: :environment do
     Statistic.positions.each_key do |position|
       Statistic.tiers.each_key do |tier|
         puts "Seeding data for #{position}, #{tier}"

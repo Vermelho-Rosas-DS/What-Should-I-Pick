@@ -21,7 +21,7 @@ class CreateChampions < ActiveRecord::Migration[7.0]
       t.text :ally_tips
       t.text :ally_tips_pt_br
       t.text :ally_tips_es
-      t.string :name_id
+      t.string :name_identifier
 
       t.timestamps
     end

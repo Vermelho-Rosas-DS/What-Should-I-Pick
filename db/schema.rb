@@ -35,20 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_183851) do
     t.text "ally_tips"
     t.text "ally_tips_pt_br"
     t.text "ally_tips_es"
-    t.string "name_id"
+    t.string "name_identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key"], name: "index_champions_on_key", unique: true
-  end
-
-  create_table "recommendations", force: :cascade do |t|
-    t.integer "champion_key"
-    t.float "win_rate"
-    t.float "pick_rate"
-    t.integer "feedback_score"
-    t.text "feedback_text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "recommendations", force: :cascade do |t|
