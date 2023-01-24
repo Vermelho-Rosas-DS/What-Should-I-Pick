@@ -5,6 +5,21 @@ aatrox:
   key: 1
   role: Fighter
   secondary_role: Tank
+  title: Title en
+  title_pt_br: Title pt br
+  title_es: Title es
+  blurb: Blurb en
+  blurb_pt_br: Blurb pt br
+  blurb_es: Blurb es
+  lore: Lore en
+  lore_pt_br: Lore pt br
+  lore_es: Lore es
+  enemy_tips: Enemy tips en
+  enemy_tips_pt_br: Enemy tips pt br
+  enemy_tips_es: Enemy tips es
+  ally_tips: Ally tips en
+  ally_tips_pt_br: Ally tips pt br
+  ally_tips_es: Ally tips es
 
 garen:
   name: Garen
