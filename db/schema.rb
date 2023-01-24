@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_021604) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_183851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_021604) do
     t.text "ally_tips_pt_br"
     t.text "ally_tips_es"
     t.string "name_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_champions_on_key", unique: true
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "champion_key"
+    t.float "win_rate"
+    t.float "pick_rate"
+    t.integer "feedback_score"
+    t.text "feedback_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_021604) do
     t.datetime "updated_at", null: false
     t.bigint "champion_id"
     t.index ["champion_id"], name: "index_statistics_on_champion_id"
+    t.index ["tier", "position", "region", "champion_id"], name: "index_unique_statistic_for_champion", unique: true
   end
 
   add_foreign_key "statistics", "champions"

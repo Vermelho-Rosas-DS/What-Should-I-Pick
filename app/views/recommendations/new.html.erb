@@ -1,10 +1,83 @@
-
-<%= form_tag (recommendations_path) do %>
-    <strong>Elo</strong>
-    <%= text_field_tag :tier%>
-    <strong>Rota</strong>
-    <%= text_field_tag :position%>
-    <strong>Role</strong>
-    <%= text_field_tag :role%>
-    <%= submit_tag "Enviar"%>
-<% end %>
+<div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    <div class="container-fluid top-gradient px-0" data-controller="new-recommendation-form">
+        <div class="d-flex flex-column align-items-center justify-content-center options-section my-5">
+            <div class="typewriter my-5">
+                <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
+            </div>
+            <div class="container my-3">
+                <div class="grid-container position-options-grid">
+                    <!-- CARD -->
+                    <% %w[top jungle mid bot support].each do |lane| %>
+                        <a href="#choose-elo" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="<%= lane == 'bot' ? 'adc' : lane %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("#{lane}_image.jpg", class: 'card-image img-fluid', alt: "") %>
+                                <%= image_tag("#{lane}_icon.svg", class: 'card-icon rounded-circle', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("lanes.#{lane}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("lanes.#{lane}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
+                </div>
+            </div>
+            <a href="#choose-elo" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="all"><%= t('lanes.no_lane') %></a>
+        </div>
+        <div id="choose-elo" class="d-flex flex-column align-items-center justify-content-center options-section my-5">
+            <div class="typewriter my-5">
+                <h1 class="display-6 fw-bold"><%= t('tiers.current_tier_question') %></h1>
+            </div>
+            <div class="container my-3">
+                <div class="grid-container tier-options-grid">
+                    <% %w[unranked iron bronze silver gold platinum diamond master grandmaster challenger].each do |tier| %>
+                        <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectTier" data-new-recommendation-form-target="tier" value="<%= tier %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("Emblem_#{tier.capitalize}.png", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("tiers.#{tier}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("tiers.#{tier}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div id="choose-role" class="d-flex flex-column align-items-center justify-content-center options-section my-5">
+            <div class="typewriter my-5">
+                <h1 class="display-6 fw-bold"><%= t('roles.preferred_role_question') %></h1>
+            </div>
+            <div class="container my-3">
+                <div class="grid-container role-options-grid">
+                    <% %w[tank marksman support fighter assassin mage].each do |role| %>
+                        <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectRole" data-new-recommendation-form-target="role" value="<%= role %>">
+                            <div class="d-flex flex-column align-items-center justify-content-around">
+                                <%= image_tag("#{role}_role_image.svg", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <section class="mx-4 mb-4 text-center">
+                                    <h2><%= t("roles.#{role}.name") %></h2>
+                                    <p class="fw-lighter"><%= t("roles.#{role}.description") %></p>
+                                </section>
+                            </div>
+                        </a>
+                    <% end %>
+                </div>
+            </div>
+            <a href="#submit-recommendation" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="new-recommendation-form#selectRole" data-new-recommendation-form-target="role" value="all">
+                <%= t('roles.no_role') %>
+            </a>
+        </div>
+        <div class="container-sm">
+            <div id="submit-recommendation" class="d-flex flex-column align-items-center justify-content-center options-section">
+                <h1 class="display-4 fw-bold text-center"><%= t('recommendations.submit_text') %></h1>
+                <a id="submit-recommendation-request-button" class="btn col-6 btn-lg btn-hover disabled color-3 text-uppercase fw-bold text-white text-wrap" aria-disabled="true" data-action="new-recommendation-form#submitRecommendationRequest">
+                    <%= t('recommendations.submit_button_text') %>
+                </a>
+            </div>
+        </div>
+        <%= form_with url: recommendations_path, method: :post, id: 'recommendation-form' do |form| %>
+            <%= form.hidden_field :position, id: 'form-position' %>
+            <%= form.hidden_field :tier, id: 'form-tier' %>
+            <%= form.hidden_field :role, id: 'form-role' %>
+        <% end %>
+    </div>
+</div>
