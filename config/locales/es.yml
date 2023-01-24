@@ -10,7 +10,85 @@ es:
     english: 'English'
     spanish: 'Español'
     portuguese: 'Português'
-    
+  lanes:
+    preffered_lane_question: ¿Con qué calle te identificas más?
+    no_lane: No tengo una calle preferida
+    top:
+      name: Superior
+      description: Los campeones de la calle superior son los luchadores solitarios por excelencia. Su trabajo es proteger su calle y centrarse en eliminar a las mayores amenazas del equipo enemigo.
+    jungle:
+      name: Jungla
+      description: Los junglas dedican su partida a la caza. Se sirven de su destreza y sigilo para saltar de una calle a otra, se encargan de vigilar los monstruos neutrales más importantes y atacan en el momento preciso cuando un enemigo baja la guardia.
+    mid:
+      name: Central
+      description: Los campeones de la calle central cuentan con un gran daño explosivo y funcionan muy bien tanto de forma independiente como en equipo. Para ellos, el combate es una peligrosa danza que consiste en encontrar el momento idóneo para acabar con su rival.
+    bot:
+      name: ADC
+      description: Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.
+    support:
+      name: Apoyo
+      description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
+  tiers:
+    current_tier_question: ¿Cuál es tu nivel actual?
+    unranked_button: No estoy clasificado
+    unranked:
+      name: Sin Clasificar
+      description: Jugadores que no estén clasificados en ninguna liga.
+    iron:
+      name: Hierro
+      description: Esta liga está pensada para jugadores novatos que están empezando a aprender sobre el juego.
+    bronze:
+      name: Bronce
+      description: Los jugadores de esta liga ya saben un poco del juego. Están empezando a mejorar.
+    silver:
+      name: Plata
+      description: Los jugadores de esta liga están empezando a acostumbrarse a la mecánica del juego/campeones.
+    gold:
+      name: Oro
+      description: Los jugadores en esta liga generalmente comienzan a dominar algunas mecánicas y mejoran.
+    platinum:
+      name: Platino
+      description: Los jugadores de esta liga tienden a estar acostumbrados a un campeón/posición y dominarlo en algún nivel.
+    diamond:
+      name: Diamante
+      description: Los jugadores de esta liga ya dominan un campeón/posición y conocen todos los conceptos básicos de todo.
+    master:
+      name: Maestro
+      description: Los jugadores de esta liga sin duda tienen experiencia. Suelen pelear entre los mejores.
+    grandmaster:
+      name: Gran Maestro
+      description: Los jugadores de esta liga sin duda tienen experiencia. Suelen pelear entre los mejores.
+    challenger:
+      name: Desafiador
+      description: Esta es la liga más alta del juego. Los jugadores de esta liga luchan por ser los mejores
+    all:
+      name: All tiers
+      description: All tiers
+  roles:
+    tank:
+      name: Tanques
+      description: "Los tanques son campeones cuerpo a cuerpo duros que sacrifican el daño a cambio de un poderoso control de multitudes. Si bien puede enfrentarse a los enemigos en combate, el propósito de un tanque no suele ser matar a los oponentes."
+    marksman:
+      name: Tiradores
+      description: "Los tiradores son campeones a distancia cuyo poder gira casi exclusivamente en torno a sus ataques básicos: usan su alcance para infligir daño continuo masivo desde la distancia."
+    support:
+      name: Soportes
+      description: "Los soportes ayudan a sus aliados con una potente utilidad y mantienen a raya a los enemigos con el control de multitudes. Débiles cuando están solos, los soportes son capaces de amplificar enormemente el poder de sus compañeros de equipo para convertirse en la clase más fuerte en el combate grupal (o peleas en equipo)."
+    fighter:
+      name: Luchadores
+      description: "Los Luchadores (también conocidos como Bruisers) son un grupo diverso de combatientes de corto alcance que sobresalen tanto en infligir como en sobrevivir al daño. Con fácil acceso a daño pesado y continuo (o DPS) y una gran cantidad de defensas innatas"
+    assassin:
+      name: Asesinos
+      description: "Los asesinos son campeones de gran movilidad que se especializan en el daño explosivo de un solo objetivo. Lo que generalmente les falta en resiliencia, lo compensan con creces con su capacidad para cubrir rápidamente grandes distancias, matar objetivos prioritarios y retirarse con la misma rapidez."
+    mage:
+      name: Magos
+      description: "Los magos son campeones que normalmente poseen un gran alcance, daño de área de efecto basado en habilidades y control de masas, y que usan todas estas fortalezas en conjunto para atrapar y destruir enemigos desde la distancia."
+    preferred_role_question: "¿Cuál es tu rol preferido?"
+    no_role: "No tengo un rol preferido"
+  recommendations:
+    submit_button_text: ¿Vamos a ver?
+    submit_text: ¡Estás a punto de obtener una ventaja ridícula con nuestra recomendación!
+
   activerecord:
     errors:
       messages:
@@ -28,7 +106,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -54,7 +132,7 @@ es:
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo

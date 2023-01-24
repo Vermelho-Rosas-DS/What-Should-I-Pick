@@ -10,7 +10,85 @@ pt-BR:
     english: 'English'
     spanish: 'Español'
     portuguese: 'Português'
-    
+  lanes:
+    preffered_lane_question: Com qual rota você mais se identifica?
+    no_lane: Não tenho uma rota preferida
+    top:
+      name: Topo
+      description: Campeões na rota superior são os lutadores durões e solitários da equipe. O trabalho deles é proteger a própria rota e focar seu dano nos membros mais fortes da equipe inimiga.
+    jungle:
+      name: Selva
+      description: Caçadores vivem pela caça. Espreitando entre as rotas com furtividade e habilidade, eles ficam atentos aos monstros da selva mais importantes e avançam no momento que o oponente baixar a guarda.
+    mid:
+      name: Meio
+      description: Campeões da rota do meio são aqueles que possuem alto dano explosivo e podem fazer de tudo, sejam sozinhos ou em equipe. Para eles, o combate é uma dança perigosa, e nela devem sempre buscar oportunidades para superar seu oponente.
+    bot:
+      name: ADC
+      description: Campeões da rota inferior são a fonte preciosa de dano de cada equipe e precisam ser protegidos no início de jogo até que acumulem ouro e experiência o suficiente para carregar toda a equipe até a vitória.
+    support:
+      name: Suporte
+      description: Campeões Suporte são os guardiões da equipe. Eles ajudam a manter seus aliados vivos e focam primordialmente em armar abates, protegendo seu parceiro na rota inferior até que fique mais forte.
+  tiers:
+    current_tier_question: Qual é o seu elo atual?
+    unranked_button: Não possuo elo
+    unranked:
+      name: Sem classificação
+      description: Jogadores que não estão classificados em nenhuma liga.
+    iron:
+      name: Ferro
+      description: Esta liga é destinada a jogadores novatos que estão começando a aprender sobre o jogo.
+    bronze:
+      name: Bronze
+      description: Os jogadores desta liga já conhecem um pouco do jogo. Eles estão começando a melhorar.
+    silver:
+      name: Prata
+      description: Os jogadores desta liga estão começando a se acostumar com a mecânica de jogo/campeões.
+    gold:
+      name: Ouro
+      description: Os jogadores nesta liga geralmente estão começando a dominar algumas mecânicas e melhorando.
+    platinum:
+      name: Platina
+      description: Os jogadores nesta liga tendem a ser acostumados com um campeão/posição e dominam em algum nível.
+    diamond:
+      name: Diamante
+      description: Os jogadores desta liga já dominam um campeão/posição e conhecem todos os fundamentos de tudo
+    master:
+      name: Mestre
+      description: Os jogadores desta liga são, sem dúvida, experientes. Eles geralmente estão lutando entre os melhores
+    grandmaster:
+      name: Grão-Mestre
+      description: Os jogadores desta liga são, sem dúvida, experientes. Eles geralmente estão lutando entre os melhores
+    challenger:
+      name: Desafiante
+      description: This is the highest league in the game. Players in this league are fighting to be the best
+    all:
+      name: Todos os elos
+      description: Todos os elos
+  roles:
+    tank:
+      name: Tanque
+      description: "Os tanques são campeões corpo a corpo duros na queda, que sacrificam danos em troca de um poderoso controle de grupo. Embora seja capaz de enfrentar inimigos em combate, o objetivo de um tanque geralmente não é matar os oponentes."
+    marksman:
+      name: Atirador
+      description: "Os atiradores são campeões de longo alcance cujo poder gira quase exclusivamente em torno de seus ataques básicos: usando seu alcance para causar dano contínuo massivo à distância"
+    support:
+      name: Suporte
+      description: "Os suportes auxiliam seus aliados com uma potente utilidade, e mantêm os inimigos afastados com controle de grupo. Fracos quando estão sozinhos, os suportes são capazes de amplificar massivamente o poder de seus companheiros de equipe para se tornar a classe mais forte em combate em grupo (ou teamfights)"
+    fighter:
+      name: Lutador
+      description: "Lutadores (também conhecidos como Bruisers) são um grupo diversificado de combatentes de curto alcance que se destacam tanto em lidar quanto em sobreviver ao dano. Com fácil acesso a dano pesado e contínuo (ou DPS) e uma série de defesas inatas"
+    assassin:
+      name: Assassino
+      description: "Assassinos são campeões altamente móveis que se especializam em dano de rajada de alvo único. O que geralmente falta em resiliência, eles mais do que compensam com sua capacidade de cobrir rapidamente grandes distâncias, matar alvos prioritários e recuar com a mesma rapidez."
+    mage:
+      name: Mago
+      description: "Os magos são campeões que normalmente possuem grande alcance, área de dano de efeito baseado em habilidade e controle de grupo, e que usam todas essas forças em conjunto para prender e destruir inimigos à distância."
+    preferred_role_question: "Qual é a sua role preferida?"
+    no_role: "Não tenho uma role preferida"
+  recommendations:
+    submit_button_text: Bora descobrir?
+    submit_text: Você está prestes a receber uma vantagem ridícula com a nossa recomendação.
+
   activerecord:
     errors:
       messages:
@@ -28,7 +106,7 @@ pt-BR:
     - sex
     - sáb
     abbr_month_names:
-    - 
+    -
     - jan
     - fev
     - mar
@@ -54,7 +132,7 @@ pt-BR:
       long: "%d de %B de %Y"
       short: "%d de %B"
     month_names:
-    - 
+    -
     - janeiro
     - fevereiro
     - março
