@@ -30,3 +30,41 @@ jobs:
         uses: artplan1/brakeman-action@v1.2.1
         with:
           flags: "--color"
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: what_should_i_pick
+          POSTGRES_DB: what_should_i_pick_test
+          POSTGRES_PASSWORD: tests
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: what_should_i_pick
+          TESTS_DATABASE_PASSWORD: tests
+        run: |
+          bin/rails db:create db:migrate
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: what_should_i_pick
+          TESTS_DATABASE_PASSWORD: tests
+        run: bin/rails test
