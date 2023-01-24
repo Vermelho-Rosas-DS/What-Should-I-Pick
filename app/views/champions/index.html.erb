@@ -1,0 +1,14 @@
+<div class="container-sm">
+  <h1>Champions</h1>
+  <ul>
+    <% @champions.each do |champion| %>
+      <h3><%= champion.name %></h3>
+      <li>
+        Win Rate: <%= (champion.statistics.order(:pick_rate).last.win_rate * 100).ceil(2) %>%
+      </li>
+      <li>
+          Pick Rate: <%= (champion.statistics.order(:pick_rate).last.pick_rate * 100).ceil(2) %>%
+      </li>
+    <% end %>
+  </ul>
+</div>

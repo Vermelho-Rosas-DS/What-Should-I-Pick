@@ -1,0 +1,45 @@
+<div class="container-sm">
+    <h2><%= @champion.name %></h2>
+    <ul>
+        <h3>Champion Info</h3>
+        <li>
+            Title: <%= @champion.title %>
+        </li>
+        <li>
+            Blurb: <%=@champion.blurb%>
+        </li>
+        <li>
+            Lore: <%=@champion.lore%>
+        </li>
+        <li>
+            Difficulty: <%=@champion.difficulty%>
+        </li>
+        <li>
+            Role: <%=@champion.role%>
+        </li>
+        <li>
+            Enemy Tips: <%=@champion.enemy_tips%>
+        </li>
+        <li>
+            Ally tips: <%=@champion.ally_tips%>
+        </li>
+    </ul>
+    <ul>
+        <h3>Champion statistics</h3>
+        <li>
+            Win Rate: <%= (@champion.statistics.order(:pick_rate).last.win_rate * 100).ceil(2) %>%
+        </li>
+        <li>
+            Pick Rate: <%= (@champion.statistics.order(:pick_rate).last.pick_rate * 100).ceil(2) %>%
+        </li>
+        <li>
+            Kill: <%= @champion.statistics.order(:pick_rate).last.kill %>
+        </li>
+        <li>
+            Death: <%= @champion.statistics.order(:pick_rate).last.death %>
+        </li>
+        <li>
+            Assist: <%= @champion.statistics.order(:pick_rate).last.assist %>
+        </li>
+    </ul>
+</div>
