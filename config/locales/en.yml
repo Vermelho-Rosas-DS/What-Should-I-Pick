@@ -40,6 +40,84 @@ en:
     english: 'English'
     spanish: 'Español'
     portuguese: 'Português'
+  lanes:
+    preffered_lane_question: Which lane do you most identify with?
+    no_lane: I don't have a preferred lane
+    top:
+      name: Top
+      description: Champions in top lane are the tough solo fighters of the team. It’s their job to protect their lane and focus on the enemy team’s most powerful members.
+    jungle:
+      name: Jungle
+      description: Junglers live for the hunt. Stalking between lanes with stealth and skill, they keep a close eye on the most important neutral monsters and pounce the moment an opponent lets their guard down.
+    mid:
+      name: Mid
+      description: Mid laners are your high burst damage champions who can do it all—solo and as a team. For them, combat is a dangerous dance where they’re always looking for an opportunity to outplay their opponent.
+    bot:
+      name: Bot
+      description: Bot lane champions are the dynamite of the team. As precious cargo, they need to be protected early on before amassing enough gold and experience to carry the team to victory.
+    support:
+      name: Support
+      description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
+  tiers:
+    current_tier_question: What is your current tier?
+    unranked_button: I'm Unranked
+    unranked:
+      name: Unranked
+      description: Players who aren't classified in any league.
+    iron:
+      name: Iron
+      description: This league is meant for newbie players who are starting to learn about the game.
+    bronze:
+      name: Bronze
+      description: Players in this league already know a bit of the game. They're starting to get better.
+    silver:
+      name: Silver
+      description: Players in this league are starting to get used to the game/champions mechanics.
+    gold:
+      name: Gold
+      description: Players in this league usually is starting to master some mechanics and getting better.
+    platinum:
+      name: Platinum
+      description: Players in this league tend to be used to a champion/position and master it at some level.
+    diamond:
+      name: Diamond
+      description: Players in this league already master a champion/position and know all the basics of everything
+    master:
+      name: Master
+      description: Players in this league are undoubtedly experienced. They are usually fighting among the best
+    grandmaster:
+      name: Grandmaster
+      description: Players in this league are undoubtedly experienced. They are usually fighting among the best
+    challenger:
+      name: Challenger
+      description: This is the highest league in the game. Players in this league are fighting to be the best
+    all:
+      name: All tiers
+      description: All tiers
+  roles:
+    tank:
+      name: Tank
+      description: "Tanks are tough melee champions who sacrifice damage in exchange for powerful crowd control. While able to engage enemies in combat, a tank's purpose isn't usually to kill opponents"
+    marksman:
+      name: Marksman
+      description: "Marksmen are ranged champions whose power almost exclusively revolves around their basic attacks: using their reach to land massive continuous damage from a distance"
+    support:
+      name: Support
+      description: "Supports assist their allies with potent utility and keep enemies at bay with crowd control. Weak when alone, supports are capable of massively amplifying their teammates' power to become the strongest class in group combat (or teamfights)"
+    fighter:
+      name: Fighter
+      description: "Fighters (also known as Bruisers) are a diverse group of short-ranged combatants who excel at both dealing and surviving damage. With easy access to heavy, continuous damage (or DPS) and a host of innate defenses"
+    assassin:
+      name: Assassin
+      description: "Assassins are highly mobile champions who specialize in single target burst damage. What they generally lack in resilience, they more than make up for with their ability to quickly cover large distances, kill priority targets and retreat just as fast."
+    mage:
+      name: Mage
+      description: "Mages are champions who typically possess great reach, ability-based area of effect damage and crowd control, and who use all of these strengths in tandem with each other to trap and destroy enemies from a distance."
+    preferred_role_question: "What is your preferred role?"
+    no_role: "I don't have a preferred role"
+  recommendations:
+    submit_button_text: Let's check it out?
+    submit_text: You're about to get a ridiculous advantage with our recommendation!
 
   activerecord:
     errors:
@@ -58,7 +136,7 @@ en:
     - Fri
     - Sat
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -84,7 +162,7 @@ en:
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:
-    - 
+    -
     - January
     - February
     - March

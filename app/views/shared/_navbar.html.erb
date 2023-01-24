@@ -1,43 +1,38 @@
-<nav class="navbar navbar-dark navbar-expand-lg " style="background-color: #1f104f; color: #000000;" >
-<!-#cor do bg: #1A237E ->
-      <div class="container-fluid ml-2" >
-        <a class="navbar-brand" href="#"> <svg width="68" height="58" viewBox="0 0 88 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="15.8998" height="54.5059" transform="matrix(0.946302 0.323284 -0.361543 0.932356 36.4596 18.4565)" fill="#573C82"/>
-        <rect x="36.4803" y="18.2802" width="15.03" height="5.99564" fill="#6F4FA3"/>
-        <rect width="17.8781" height="75.8244" transform="matrix(0.986579 -0.163282 0.184629 0.982808 0 2.91919)" fill="#A473F5"/>
-        <rect width="15.8998" height="54.5059" transform="matrix(0.946302 -0.323284 0.361543 0.932356 36.4912 23.6178)" fill="#6F4FA3"/>
-        <rect width="17.8781" height="75.8244" transform="matrix(0.986579 0.163282 -0.184629 0.982808 70.3618 0)" fill="#A473F5"/>
-        </svg> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item h5"  style="color: #000;">
-              <a class="nav-link " aria-current="page" href="#"><%= t('navbar.home')%></a>
-            </li>
-            <li class="nav-item h5">
-              <a class="nav-link " href="#"><%= t('navbar.recommendations')%> </a>
-            </li>
-            <li class="nav-item h5">
-              <a class="nav-link" href="#"><%=t('navbar.champions')%></a>
-            </li>
-            <li class="nav-item dropdown h5">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%=t('navbar.language')%>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="<%=current_path_translated_to('pt-BR')%>"><span class="flag-icon flag-icon-br"></span>&nbsp<%=t('navbar.portuguese')%></a></li>
-                <li><a class="dropdown-item" href="<%=current_path_translated_to(:es)%>"><span class=" flag-icon flag-icon-es"></span>&nbsp<%=t('navbar.spanish')%></a></li>
-                <li><a class="dropdown-item" href="<%=current_path_translated_to(:en)%>"><span class="flag-icon flag-icon-us"></span>&nbsp<%=t('navbar.english')%></a></li>
-              </ul>
-            </li>
+<nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-indigo-900">
+  <div class="container-sm">
+    <a class="navbar-brand mx-4" href="<%= root_path %>"> <svg width="68" height="58" viewBox="0 0 88 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <%= image_tag 'logo.svg' %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item mx-1" style="color: #000;">
+          <a class="nav-link" aria-current="page" href="<%= root_path %>"><%= t('navbar.home')%></a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link" href="<%= new_recommendation_path %>"><%= t('navbar.recommendations')%> </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link" href="#"><%=t('navbar.champions')%></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-uppercase text-center dropdown-toggle dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= t('navbar.language') %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="<%=current_path_translated_to('pt-BR')%>"><span class="flag-icon flag-icon-br"></span>&nbsp<%=t('navbar.portuguese')%></a></li>
+            <li><a class="dropdown-item" href="<%=current_path_translated_to(:es)%>"><span class=" flag-icon flag-icon-es"></span>&nbsp<%=t('navbar.spanish')%></a></li>
+            <li><a class="dropdown-item" href="<%=current_path_translated_to(:en)%>"><span class="flag-icon flag-icon-us"></span>&nbsp<%=t('navbar.english')%></a></li>
           </ul>
-         
-        </div> 
-        <form class="d-flex" role="search">
-            <input class="form-control me-2 w-100 p-3" type="search" placeholder="<%= t('navbar.champions_name') %>" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit" ><%=t('navbar.search')%></button>
-          </form>
-      </div>
-    </nav>
+        </li>
+      </ul>
+
+    </div>
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="<%= t('navbar.champions_name') %>" aria-label="Search">
+        <button class="btn btn-primary" type="submit" ><span class="fw-bold text-uppercase"><%=t('navbar.search')%></span></button>
+    </form>
+  </div>
+</nav>

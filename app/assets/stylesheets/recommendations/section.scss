@@ -1,0 +1,22 @@
+.options-section {
+    min-height: 100vh;
+}
+
+.position-options-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+.tier-options-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem 2.5rem;
+}
+
+.role-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 10rem;
+}
+
+.tier-card {
+    height: 100% !important;
+}
