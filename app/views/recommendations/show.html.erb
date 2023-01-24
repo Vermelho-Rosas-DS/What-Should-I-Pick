@@ -1,1 +1,12 @@
-<h1 style="color: #000;"><%= @champ %> </h1>
+<div class="text-light container-sm">
+    <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg" %>
+    <h1><%= @champ.name %></h1>
+    <h4><%= @champ.title %></h4>
+    <p><%= @champ.blurb %></p>
+    <h4>Dicas!</h4>
+    <p><%= @champ.ally_tips %></p>
+    <h4>Winrate</h4>
+    <p><%= @recommendation.win_rate %></p>
+    <h4>Pickrate</h4>
+    <p><%= @recommendation.pick_rate %></p>
+</div>

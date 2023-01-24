@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pt-BR|es/ do
     resources :recommendations, only: [:create, :new, :show]
     root 'application#home'
-    get 'inicio' => 'welcome#index'
   end
 end
