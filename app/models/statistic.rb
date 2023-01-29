@@ -1,7 +1,7 @@
 class Statistic < ApplicationRecord
-  scope :filtered_by, ->(tier:, position:) {
+  scope :filtered_by, ->(tier:, position: nil) {
     if position == nil
-      select('DISTINCT ON (champion_id) *').where(tier:).order(pick_rate: :desc)
+      select('DISTINCT ON (champion_key) *').where(tier:).order(champion_key: :asc, pick_rate: :desc)
     else
       where(tier: , position:).order(:pick_rate)
     end

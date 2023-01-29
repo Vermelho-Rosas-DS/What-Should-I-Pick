@@ -1,13 +1,14 @@
 <div class="container-sm">
   <h1>Champions</h1>
   <ul>
-    <% @champions.each do |champion| %>
+    <% @statistics.each do |statistic| %> 
+      <% champion = statistic.champion %>
       <h3><%= champion.name %></h3>
       <li>
-        Win Rate: <%= (champion.statistics.filtered_by(tier: 3, position: nil).last.win_rate * 100).ceil(2) %>%
+        Win Rate: <%= (statistic.win_rate * 100).ceil(2) %>%
       </li>
       <li>
-          Pick Rate: <%= (champion.statistics.filtered_by(tier: 3, position: nil).last.pick_rate * 100).ceil(2) %>%
+          Pick Rate: <%= (statistic.pick_rate * 100).ceil(2) %>%
       </li>
     <% end %>
   </ul>

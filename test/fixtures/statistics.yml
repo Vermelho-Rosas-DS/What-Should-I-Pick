@@ -22,7 +22,7 @@ aatrox_mid_gold:
   tier: 'gold'
   position: 'mid'
   win_rate: 0.57
-  pick_rate: 0.2
+  pick_rate: 0.3
   role: fighter
   secondary_role: tank
   champion_key: 1
@@ -31,7 +31,7 @@ garen_mid_gold:
   tier: 'gold'
   position: 'mid'
   win_rate: 0.59
-  pick_rate: 1.5
+  pick_rate: 1.6
   role: fighter
   secondary_role: tank
   champion_key: 2
