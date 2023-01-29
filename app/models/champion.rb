@@ -1,5 +1,6 @@
 class Champion < ApplicationRecord
   has_many :statistics, dependent: :destroy
+  has_many :recommendations, foreign_key: :champion_key, primary_key: :key, class_name: "Recommendation", dependent: :destroy
   attr_accessor :most_frequent_statistic
 
   def update_most_frequent_statistic
