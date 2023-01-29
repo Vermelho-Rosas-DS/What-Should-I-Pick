@@ -2,6 +2,6 @@
     <h1 class="conteudo-titulo"><b>What Should I Pick?</b></h1>
     <button class="conteudo-botao"><%=t('home.start_button')%></button>
     <ul class="conteudo-lista">
-        <li><%= raw I18n.t('home.home_text').gsub("\n", "<br>") %></li>
+        <%= raw I18n.t('home.home_text').gsub("\n", "<li>") %>
     </ul>
 </div>
