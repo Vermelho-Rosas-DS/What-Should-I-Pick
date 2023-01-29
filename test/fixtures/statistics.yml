@@ -1,29 +1,55 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  tier: 1
-  position: 1
-  win_rate: 1.5
-  pick_rate: 1.5
-  performance: 1.5
-  role: MyString
-  secondary_role: MyString
-  kill: 1
-  death: 1
-  assist: 1
-  region: 1
+aatrox_top_gold:
+  tier: 'gold'
+  position: 'top'
+  win_rate: 0.515
+  pick_rate: 0.2
+  role: fighter
+  secondary_role: tank
   champion_key: 1
 
-two:
-  tier: 1
-  position: 1
-  win_rate: 1.5
+garen_top_gold:
+  tier: 'gold'
+  position: 'top'
+  win_rate: 0.516
   pick_rate: 1.5
-  performance: 1.5
-  role: MyString
-  secondary_role: MyString
-  kill: 1
-  death: 1
-  assist: 1
-  region: 1
+  role: fighter
+  secondary_role: tank
+  champion_key: 2
+
+aatrox_mid_gold:
+  tier: 'gold'
+  position: 'mid'
+  win_rate: 0.57
+  pick_rate: 0.2
+  role: fighter
+  secondary_role: tank
   champion_key: 1
+
+garen_mid_gold:
+  tier: 'gold'
+  position: 'mid'
+  win_rate: 0.59
+  pick_rate: 1.5
+  role: fighter
+  secondary_role: tank
+  champion_key: 2
+
+aatrox_mid_diamond:
+  tier: 'diamond'
+  position: 'mid'
+  win_rate: 0.52
+  pick_rate: 0.2
+  role: fighter
+  secondary_role: tank
+  champion_key: 1
+
+garen_mid_diamond:
+  tier: 'diamond'
+  position: 'mid'
+  win_rate: 0.47
+  pick_rate: 1.5
+  role: fighter
+  secondary_role: tank
+  champion_key: 2
