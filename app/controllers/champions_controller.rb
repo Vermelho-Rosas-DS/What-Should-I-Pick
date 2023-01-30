@@ -1,6 +1,9 @@
 class ChampionsController < ApplicationController
   def index
-    @champions = Champion.all
+    position = params[:position]
+    tier = params[:tier] || 'all'
+    @statistics = Statistic.filtered_by(tier:, position:).includes(:champion)
+    @statistics = @statistics.sort_by { |statistic| statistic.champion.name_identifier }
   end
 
   def show

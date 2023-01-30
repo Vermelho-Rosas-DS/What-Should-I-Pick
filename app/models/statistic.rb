@@ -1,4 +1,11 @@
 class Statistic < ApplicationRecord
+  scope :filtered_by, ->(tier:, position: nil) {
+    if position.nil?
+      select('DISTINCT ON (champion_key) *').where(tier:).order(champion_key: :asc, pick_rate: :desc)
+    else
+      where(tier:, position:).order(:pick_rate)
+    end
+  }
   belongs_to :champion
   enum tier: { all: 0, iron: 1, bronze: 2, silver: 3, gold: 4, platinum: 5, diamond: 6, master: 7, grandmaster: 8, challenger: 9 },
        _prefix: true
