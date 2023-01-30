@@ -88,6 +88,13 @@ pt-BR:
   recommendations:
     submit_button_text: Bora descobrir?
     submit_text: Você está prestes a receber uma vantagem ridícula com a nossa recomendação.
+  home:
+    start_button: Começar!
+    home_text: |
+      Descubra qual Champion mais se encaixa com seu estilo de jogo.
+      Veja todas as estatísticas desse de cada Champion (winrate, picks rates, ban rates e etc).
+      Saiba quais Champions os elos mais altos utilizam.
+      Melhore sua jogabilidade e suba o nivel do seu jogo hoje mesmo.
 
   activerecord:
     errors:
