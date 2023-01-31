@@ -121,6 +121,13 @@ en:
   recommendations:
     submit_button_text: Let's check it out?
     submit_text: You're about to get a ridiculous advantage with our recommendation!
+  home:
+    start_button: Let's start!
+    home_text: |
+      Find out which Champion best fits your play style.
+      See all the stats of each Champion (winrate, picks rates, ban rates and etc).
+      Know which Champions the highest links use.
+      Improve your gameplay and level up your game today.
 
   activerecord:
     errors:
