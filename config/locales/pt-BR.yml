@@ -25,6 +25,9 @@ pt-BR:
     bot:
       name: ADC
       description: Campeões da rota inferior são a fonte preciosa de dano de cada equipe e precisam ser protegidos no início de jogo até que acumulem ouro e experiência o suficiente para carregar toda a equipe até a vitória.
+    adc:
+      name: ADC
+      description: Campeões da rota inferior são a fonte preciosa de dano de cada equipe e precisam ser protegidos no início de jogo até que acumulem ouro e experiência o suficiente para carregar toda a equipe até a vitória.
     support:
       name: Suporte
       description: Campeões Suporte são os guardiões da equipe. Eles ajudam a manter seus aliados vivos e focam primordialmente em armar abates, protegendo seu parceiro na rota inferior até que fique mais forte.
@@ -88,6 +91,12 @@ pt-BR:
   recommendations:
     submit_button_text: Bora descobrir?
     submit_text: Você está prestes a receber uma vantagem ridícula com a nossa recomendação.
+  champions:
+    index:
+      champion: Campeão
+      position: Posição
+      win_rate: Taxa de vitórias
+      pick_rate: Taxa de escolha
   home:
     start_button: Começar!
     home_text: |

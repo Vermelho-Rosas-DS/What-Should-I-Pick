@@ -121,6 +121,12 @@ en:
   recommendations:
     submit_button_text: Let's check it out?
     submit_text: You're about to get a ridiculous advantage with our recommendation!
+  champions:
+    index:
+      champion: Champion
+      position: Position
+      win_rate: Win rate
+      pick_rate: Pick rate
   home:
     start_button: Let's start!
     home_text: |

@@ -2,7 +2,7 @@
   <div class="container-sm">
     <table class="table table-striped table-dark my-0">
       <thead>
-        <th scope="col" class="small fw-lighter ms-2">#</th>
+        <th scope="col" class="small fw-lighter ms-5">#</th>
         <th scope="col" class="text-capitalize"><%= t('champions.index.champion') %></th>
         <th scope="col" class="text-capitalize"><%= t('champions.index.position') %></th>
         <th scope="col" class="text-capitalize"><%= t('champions.index.win_rate') %></th>
@@ -22,10 +22,10 @@
               <%= t("lanes.#{statistic.position}.name") %>
             </td>
             <td class="small">
-              <%= (statistic.win_rate * 100).round(2) %>
+              <%= (statistic.win_rate * 100).round(2) %> %
             </td>
             <td class="small">
-              <%= (statistic.pick_rate * 100).round(2) %>
+              <%= (statistic.pick_rate * 100).round(2) %> %
             </td>
           </tr>
         <% end %>

@@ -25,6 +25,9 @@ es:
     bot:
       name: ADC
       description: Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.
+    adc:
+      name: ADC
+      description: Los campeones de la calle inferior son la dinamita del equipo. Hay que protegerlos al comienzo de la partida para asegurarse de que consiguen suficiente oro y experiencia para llevar al equipo a la victoria.
     support:
       name: Apoyo
       description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
@@ -88,6 +91,12 @@ es:
   recommendations:
     submit_button_text: ¿Vamos a ver?
     submit_text: ¡Estás a punto de obtener una ventaja ridícula con nuestra recomendación!
+  champions:
+    index:
+      champion: Campeon
+      position: Calle
+      win_rate: Ratio de victorias
+      pick_rate: Tasa de selección
   home:
     start_button: ¡Para comenzar!
     home_text: |
