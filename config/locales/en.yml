@@ -55,6 +55,9 @@ en:
     bot:
       name: Bot
       description: Bot lane champions are the dynamite of the team. As precious cargo, they need to be protected early on before amassing enough gold and experience to carry the team to victory.
+    adc:
+      name: Bot
+      description: Bot lane champions are the dynamite of the team. As precious cargo, they need to be protected early on before amassing enough gold and experience to carry the team to victory.
     support:
       name: Support
       description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
@@ -66,7 +69,7 @@ en:
       description: Players who aren't classified in any league.
     iron:
       name: Iron
-      description: This league is meant for newbie players who are starting to learn about the game.
+      description: This league is meant to have newbie players who are starting to learn about the game.
     bronze:
       name: Bronze
       description: Players in this league already know a bit of the game. They're starting to get better.
