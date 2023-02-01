@@ -14,19 +14,20 @@ class ChampionsController < ApplicationController
     @statistics = Statistic.filtered_by(tier: @tier, position: @position).includes(:champion)
     ## Fim do cache
 
-    if field == 'name_identifier'
+    case field
+    when 'name_identifier'
       @statistics = @statistics.sort_by { |statistic| statistic.champion.name_identifier }
-    elsif field == 'win_rate'
-      @statistics = @statistics.sort_by { |statistic| statistic.win_rate }
-    elsif field == 'pick_rate'
-      @statistics = @statistics.sort_by { |statistic| statistic.pick_rate }
+    when 'win_rate'
+      @statistics = @statistics.sort_by(&:win_rate)
+    when 'pick_rate'
+      @statistics = @statistics.sort_by(&:pick_rate)
     end
     @statistics.reverse! if sort_type != 'asc'
   end
 
   def show
     @champion = Champion.find(params[:id])
-    not_found unless @champion.present?
+    not_found if @champion.blank?
 
     @page_title = I18n.t('champions.show.page_title', champion_name: @champion.name)
   end

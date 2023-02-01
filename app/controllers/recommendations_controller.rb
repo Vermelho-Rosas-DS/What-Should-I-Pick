@@ -1,9 +1,9 @@
 class RecommendationsController < ApplicationController
   def show
     @recommendation = Recommendation.find(params[:id])
-    not_found unless @recommendation.present?
+    not_found if @recommendation.blank?
     @champ = Champion.where(key: @recommendation.champion_key).first
-    not_found unless @champ.present?
+    not_found if @champ.blank?
 
     @page_title = I18n.t('recommendations.show.page_title', recommendation_id: @recommendation.id)
   end
