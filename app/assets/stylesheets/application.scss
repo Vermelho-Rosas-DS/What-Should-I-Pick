@@ -186,7 +186,11 @@
  }
 
  .shade-bg {
-     background: rgba(black, .7);
+     background: rgba(black, .55);
+ }
+
+ .shade-mask {
+    mask-image: rgba(black, .55);
  }
 
  $primary:   map-get($colors, indigo-500);

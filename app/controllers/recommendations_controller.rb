@@ -1,10 +1,15 @@
 class RecommendationsController < ApplicationController
   def show
     @recommendation = Recommendation.find(params[:id])
+    not_found if @recommendation.blank?
     @champ = Champion.where(key: @recommendation.champion_key).first
+    not_found if @champ.blank?
+
+    @page_title = I18n.t('recommendations.show.page_title', recommendation_id: @recommendation.id)
   end
 
   def new
+    @page_title = I18n.t('recommendations.new.page_title')
   end
 
   def create

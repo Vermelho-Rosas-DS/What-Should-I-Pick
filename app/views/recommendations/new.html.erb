@@ -30,7 +30,7 @@
             <div class="container my-3">
                 <div class="grid-container tier-options-grid">
                     <% %w[unranked iron bronze silver gold platinum diamond master grandmaster challenger].each do |tier| %>
-                        <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectTier" data-new-recommendation-form-target="tier" value="<%= tier %>">
+                        <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectTier" data-new-recommendation-form-target="tier" value="<%= tier == 'unranked' ? 'all' : tier %>">
                             <div class="d-flex flex-column align-items-center justify-content-around">
                                 <%= image_tag("Emblem_#{tier.capitalize}.png", class: 'card-image my-3 img-fluid', alt: "") %>
                                 <section class="mx-4 mb-4 text-center">
