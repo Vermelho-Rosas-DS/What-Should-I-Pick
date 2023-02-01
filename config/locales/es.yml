@@ -97,6 +97,33 @@ es:
       position: Calle
       win_rate: Ratio de victorias
       pick_rate: Tasa de selección
+  statistic:
+    label:
+      winrate:
+        outstanding: sobresaliente
+        good: bueno
+        ok: ok
+        poor: malo
+        legendary: legendario
+        among_the_best: entre los mejores
+        very_good: muy bueno
+        not_so_good: no tan bueno
+        below_average: debajo del promedio
+        among_the_worst: entre los peores
+        terrible: horrible
+        garbage: basura
+        acceptable: aceptable
+      pickrate:
+        fever: fiebre
+        super_popular: súper popular
+        popular: popular
+        frequent: frecuente
+        common: común
+        sporadic: esporádico
+        forgotten: olvidado
+        rare: raro
+        very_rare: muy raro
+        odd: peculiar
   home:
     start_button: ¡Para comenzar!
     home_text: |

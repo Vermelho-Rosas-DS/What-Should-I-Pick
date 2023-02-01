@@ -97,6 +97,33 @@ pt-BR:
       position: Posição
       win_rate: Taxa de vitórias
       pick_rate: Taxa de escolha
+  statistic:
+    label:
+      winrate:
+        outstanding: excepcional
+        good: bom
+        ok: ok
+        poor: ruim
+        legendary: lendário
+        among_the_best: entre os melhores
+        very_good: muito bom
+        not_so_good: não muito bom
+        below_average: abaixo da média
+        among_the_worst: entre os piores
+        terrible: horrível
+        garbage: lixo
+        acceptable: aceitável
+      pickrate:
+        fever: febre
+        super_popular: super popular
+        popular: popular
+        frequent: frequente
+        common: comum
+        sporadic: esporádico
+        forgotten: esquecido
+        rare: raro
+        very_rare: muito raro
+        odd: exótico
   home:
     start_button: Começar!
     home_text: |

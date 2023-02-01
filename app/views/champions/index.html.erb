@@ -22,10 +22,16 @@
               <%= t("lanes.#{statistic.position}.name") %>
             </td>
             <td class="small">
-              <%= (statistic.win_rate * 100).round(2) %> %
+              <div class="hstack gap-3">
+                <%= (statistic.win_rate * 100).round(2) %> %
+                <%= render_win_rate_badge((statistic.win_rate * 100).round(2)) %>
+              </div>
             </td>
             <td class="small">
-              <%= (statistic.pick_rate * 100).round(2) %> %
+              <div class="hstack gap-3">
+                <%= (statistic.pick_rate * 100).round(2) %> %
+                <%= render_pick_rate_badge((statistic.pick_rate * 100).round(2)) %>
+              </div>
             </td>
           </tr>
         <% end %>

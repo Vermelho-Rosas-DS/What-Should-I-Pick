@@ -127,6 +127,33 @@ en:
       position: Position
       win_rate: Win rate
       pick_rate: Pick rate
+  statistic:
+    label:
+      winrate:
+        outstanding: outstanding
+        good: good
+        ok: ok
+        poor: poor
+        legendary: legendary
+        among_the_best: among the best
+        very_good: very good
+        not_so_good: not so good
+        below_average: below average
+        among_the_worst: among the worst
+        terrible: terrible
+        garbage: garbage
+        acceptable: acceptable
+      pickrate:
+        fever: fever
+        super_popular: super popular
+        popular: popular
+        frequent: frequent
+        common: common
+        sporadic: sporadic
+        forgotten: forgotten
+        rare: rare
+        very_rare: very rare
+        odd: odd
   home:
     start_button: Let's start!
     home_text: |
