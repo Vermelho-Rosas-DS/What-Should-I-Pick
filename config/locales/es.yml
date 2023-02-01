@@ -31,6 +31,9 @@ es:
     support:
       name: Apoyo
       description: Los campeones de apoyo son los protectores del equipo. Mantienen con vida a sus aliados y se centran en que consigan asesinatos, así como en proteger a su compañero de la calle inferior hasta que se vuelva más fuerte.
+    all:
+      name: Todas las posiciones
+      description: Todas las posiciones
   tiers:
     current_tier_question: ¿Cuál es tu nivel actual?
     unranked_button: No estoy clasificado
@@ -65,8 +68,8 @@ es:
       name: Desafiador
       description: Esta es la liga más alta del juego. Los jugadores de esta liga luchan por ser los mejores
     all:
-      name: All tiers
-      description: All tiers
+      name: Todas las ligas
+      description: Todas las ligas
   roles:
     tank:
       name: Tanques
@@ -93,10 +96,13 @@ es:
     submit_text: ¡Estás a punto de obtener una ventaja ridícula con nuestra recomendación!
   champions:
     index:
+      page_title: Lista de Campeones - What Should I Pick
       champion: Campeon
       position: Calle
       win_rate: Ratio de victorias
       pick_rate: Tasa de selección
+    show:
+      page_title: "%{champion_name} - Detalles - What Should I Pick"
   statistic:
     label:
       winrate:

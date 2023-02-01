@@ -61,6 +61,9 @@ en:
     support:
       name: Support
       description: Support champions are team guardians. They help keep teammates alive and primarily focus on setting up kills, protecting their teammate in bot lane until they become stronger.
+    all:
+      name: All
+      description: All positions
   tiers:
     current_tier_question: What is your current tier?
     unranked_button: I'm Unranked
@@ -123,10 +126,13 @@ en:
     submit_text: You're about to get a ridiculous advantage with our recommendation!
   champions:
     index:
+      page_title: Champions List - What Should I Pick
       champion: Champion
       position: Position
       win_rate: Win rate
       pick_rate: Pick rate
+    show:
+      page_title: "%{champion_name} - Details - What Should I Pick"
   statistic:
     label:
       winrate:
