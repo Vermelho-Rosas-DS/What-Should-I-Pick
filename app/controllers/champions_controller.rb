@@ -16,8 +16,10 @@ class ChampionsController < ApplicationController
 
     if field == 'name_identifier'
       @statistics = @statistics.sort_by { |statistic| statistic.champion.name_identifier }
-    elsif field == 'win_rate' || field == 'pick_rate'
-      @statistics = @statistics.sort_by { |statistic| statistic.send(field) }
+    elsif field == 'win_rate'
+      @statistics = @statistics.sort_by { |statistic| statistic.win_rate }
+    elsif field == 'pick_rate'
+      @statistics = @statistics.sort_by { |statistic| statistic.pick_rate }
     end
     @statistics.reverse! if sort_type != 'asc'
   end
