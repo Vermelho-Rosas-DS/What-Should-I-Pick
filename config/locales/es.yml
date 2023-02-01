@@ -94,6 +94,10 @@ es:
   recommendations:
     submit_button_text: ¿Vamos a ver?
     submit_text: ¡Estás a punto de obtener una ventaja ridícula con nuestra recomendación!
+    show:
+      page_title: "Recomendacione #%{recommendation_id} - What Should I Pick"
+    new:
+      page_title: Obtener una recomendación! - What Should I Pick
   champions:
     index:
       page_title: Lista de Campeones - What Should I Pick

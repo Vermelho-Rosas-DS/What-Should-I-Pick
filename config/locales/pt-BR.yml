@@ -94,6 +94,10 @@ pt-BR:
   recommendations:
     submit_button_text: Bora descobrir?
     submit_text: Você está prestes a receber uma vantagem ridícula com a nossa recomendação.
+    show:
+      page_title: "Recomendação #%{recommendation_id} - What Should I Pick"
+    new:
+      page_title: Receba uma recomendação! - What Should I Pick
   champions:
     index:
       page_title: Lista de Campeões - What Should I Pick

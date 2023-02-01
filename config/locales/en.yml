@@ -124,6 +124,10 @@ en:
   recommendations:
     submit_button_text: Let's check it out?
     submit_text: You're about to get a ridiculous advantage with our recommendation!
+    show:
+      page_title: "Recommendation #%{recommendation_id} - What Should I Pick"
+    new:
+      page_title: Get a recommendation! - What Should I Pick
   champions:
     index:
       page_title: Champions List - What Should I Pick
