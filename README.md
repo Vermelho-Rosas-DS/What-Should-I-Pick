@@ -77,7 +77,8 @@ A aplicação estará disponível no endereço `localhost:3000`
 
 | Nome | Matrícula | Role | Github |
 | :--: | :-------: | :--: | :----: |
-| Victor Gonçalves | 18/0055241 | Duque | [@VictorJorgeFGA](https://github.com/VictorJorgeFGA) |
-| Victor Gomes | 22/1022140 | Cavaleiro | [@VictorGCOSTA](https://github.com/VictorGCOSTA) |
-| Elias Oliveira | 22/1007706 | Cavaleiro | [@EliasOliver21](https://github.com/EliasOliver21) |
-| Gabriel Castelo | 22/1008051 | Cavaleiro | [@GabrielCastelo-31](https://github.com/GabrielCastelo-31) |
+| Victor Gonçalves | 18/0055241 | Duque     | [@VictorJorgeFGA](https://github.com/VictorJorgeFGA)       |
+| Victor Gomes     | 22/1022140 | Cavaleiro | [@VictorGCOSTA](https://github.com/VictorGCOSTA)           |
+| Elias Oliveira   | 22/1007706 | Cavaleiro | [@EliasOliver21](https://github.com/EliasOliver21)         |
+| Gabriel Castelo  | 22/1008051 | Cavaleiro | [@GabrielCastelo-31](https://github.com/GabrielCastelo-31) |
+| Iderlan Silva    | 21/1062947 | Cavaleiro | [@IderlanJ](https://github.com/IderlanJ)                   |

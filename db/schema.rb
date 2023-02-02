@@ -11,6 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_02_232234) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_202047) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_232234) do
     t.datetime "updated_at", null: false
     t.string "tier"
     t.string "position"
+    t.index ["champion_key"], name: "index_recommendations_on_champion_key"
+
   end
 
   create_table "statistics", force: :cascade do |t|
@@ -73,5 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_232234) do
     t.index ["tier", "position", "region", "champion_id"], name: "index_unique_statistic_for_champion", unique: true
   end
 
+  add_foreign_key "recommendations", "champions", column: "champion_key", primary_key: "key"
   add_foreign_key "statistics", "champions"
 end
