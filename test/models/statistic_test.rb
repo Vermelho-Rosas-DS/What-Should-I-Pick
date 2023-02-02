@@ -23,4 +23,22 @@ class StatisticTest < ActiveSupport::TestCase
     expected_result = [statistics(:aatrox_mid_gold), statistics(:garen_mid_gold)].sort
     assert_equal expected_result, Statistic.filtered_by(tier: 'gold').to_a.sort
   end
+
+  test 'should fetch most victorious statistic correctly' do
+    Statistic.destroy_all
+
+    aatrox = champions(:aatrox)
+    garen = champions(:garen)
+
+    statistic_1 = Statistic.create({tier: 'all', position: 'top', win_rate: 0.51, pick_rate: 0.01, role: 'fighter', champion: aatrox})
+    statistic_2 = Statistic.create({tier: 'all', position: 'top', win_rate: 0.50, pick_rate: 0.02, role: 'marksman', champion: garen})
+    statistic_3 = Statistic.create({tier: 'all', position: 'mid', win_rate: 0.49, pick_rate: 0.02, role: 'support', champion: aatrox})
+    statistic_4 = Statistic.create({tier: 'all', position: 'mid', win_rate: 0.52, pick_rate: 0.03, role: 'tank', champion: garen})
+
+    assert_equal statistic_2, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all', minimum_pick_rate: 0.015).first
+    assert_equal statistic_1, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all').first
+    assert_equal statistic_3, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'support').first
+    assert_equal statistic_4, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'all', minimum_pick_rate: 0.02).first
+    assert_equal statistic_4, Statistic.most_victorious_statistic_for.first
+  end
 end

@@ -13,11 +13,16 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    estats = Statistic.where(tier: params[:tier], position: params[:position], role: params[:role]).order(:win_rate).last
-    if estats.present?
-      champ_key = estats.champion_key
+    tier = params[:tier]
+    position = params[:position]
+    role = params[:role]
+
+    statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:, minimum_pick_rate: Statistic.minimum_reliable_pick_rate).first
+
+    if statistic.present?
+      champ_key = statistic.champion_key
       @champ = Champion.where(key: champ_key).first
-      @recommendation = Recommendation.create(champion_key: estats.champion_key, win_rate: estats.win_rate, pick_rate: estats.pick_rate)
+      @recommendation = Recommendation.create(champion_key: statistic.champion_key, win_rate: statistic.win_rate, pick_rate: statistic.pick_rate)
       if @recommendation.persisted?
         redirect_to recommendation_path(@recommendation)
       else
