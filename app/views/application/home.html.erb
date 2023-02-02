@@ -1,10 +1,7 @@
 <div class="conteudo">
     <h1 class="conteudo-titulo"><b>What Should I Pick?</b></h1>
-    <button class="conteudo-botao">Começar!</button>
+    <button class="conteudo-botao"><%=t('home.start_button')%></button>
     <ul class="conteudo-lista">
-        <li>Descubra qual Champion mais se encaixa com seu estilo de jogo.</li>
-        <li>Veja todas as estatísticas desse de cada Champion (winrate, picks rates, ban rates e etc). </li>
-        <li>Saiba quais Champions os elos mais altos utilizam.</li>
-        <li>Melhore sua jogabilidade e suba o nivel do seu jogo hoje mesmo.</li>
+        <%= raw I18n.t('home.home_text').gsub("\n", "<li>") %>
     </ul>
 </div>

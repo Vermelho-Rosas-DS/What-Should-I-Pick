@@ -57,6 +57,6 @@ Metrics/PerceivedComplexity:
 Metrics/ModuleLength:
   Enabled: false
 Metrics/CyclomaticComplexity:
-  Max: 15
+  Max: 20
 Metrics/AbcSize:
   Enabled: false

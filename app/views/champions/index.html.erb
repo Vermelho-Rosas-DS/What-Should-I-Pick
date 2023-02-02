@@ -1,15 +1,108 @@
-<div class="container-sm">
-  <h1>Champions</h1>
-  <ul>
-    <% @statistics.each do |statistic| %> 
-      <% champion = statistic.champion %>
-      <h3><%= champion.name %></h3>
-      <li>
-        Win Rate: <%= (statistic.win_rate * 100).ceil(2) %>%
-      </li>
-      <li>
-          Pick Rate: <%= (statistic.pick_rate * 100).ceil(2) %>%
-      </li>
-    <% end %>
-  </ul>
+<div class="container-fluid bg-dark px-0" style="background-image: url(<%= image_url 'Malzahar_0.jpg' %>);background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+  <div class="container-fluid shade-bg">
+    <div class="container-sm">
+      <table class="table table-striped table-dark my-0">
+          <thead>
+              <th scope="col"></th>
+          <thead>
+          <tbody>
+              <td scope="col">
+                  <div class="container-sm d-flex justify-content-around py-1">
+                      <form id="filter-form" action="<%= champions_path %>" method="get">
+                          <input type="hidden" name="tier" id="form-tier" value="<%= @tier %>">
+                          <input type="hidden" name="position" id="form-position" value="<%= @position %>">
+                          <input type="hidden" name="sort" id="form-sort" value="<%= "#{@sort.keys.first.to_s}-#{@sort.values.first.to_s}" %>">
+                      </form>
+                      <div class="d-flex justify-content-around">
+                              <div class="col">
+                                  <div class="dropdown">
+                                      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <span class="text-uppercase fw-bold"><%= translated_tier @tier %></span>
+                                      </button>
+                                      <ul class="dropdown-menu dropdown-menu-dark" data-controller="champions-filter">
+                                          <% available_tiers.each do |tier| %>
+                                              <li>
+                                                  <a class="dropdown-item <%= 'active' if @tier == tier %>" href="#" data-action="click->champions-filter#update_filters" value="<%= tier %>" input-target="form-tier">
+                                                      <span class="text-uppercase small"><%= translated_tier tier %></span>
+                                                  </a>
+                                              </li>
+                                          <% end %>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="btn-group" role="group" aria-label="roles" data-controller="champions-filter">
+                              <% available_positions.each do |position| %>
+                                  <a class="btn btn-sm <%= @position == position ? 'btn-secondary' : 'btn-outline-secondary' %>" data-action="click->champions-filter#update_filters" value="<%= position %>" input-target="form-position">
+                                      <span class="text-uppercase fw-bold"><%= translated_position position %></span>
+                                  </a>
+                              <% end %>
+                          </div>
+                      </div>
+                  </div>
+              </td>
+          </tbody>
+      </table>
+    </div>
+    <div class="container-sm">
+      <table class="table table-striped table-dark my-0">
+        <thead data-controller="champions-sort">
+          <th scope="col" class="small fw-lighter ms-5">#</th>
+          <th scope="col" class="text-capitalize">
+            <a href="#" class="text-decoration-none fw-<%= @sort['name_identifier'] ? 'bolder' : 'normal' %> text-white" data-action="click->champions-sort#update_sort" value="<%= 'name_identifier' %>" data-sort-triggered="<%= @sort['name_identifier'].present? %>" data-sort-value="<%= @sort['name_identifier'] || 'desc' %>">
+              <%= t('champions.index.champion') %>
+              <% if @sort['name_identifier'] %>
+                  <i class="fa fa-solid fa-angle-<%= @sort['name_identifier'] == 'asc' ? 'up' : 'down' %> fw-bold"></i>
+              <% end %>
+            </a>
+          </th>
+          <th scope="col" class="text-capitalize fw-normal"><%= t('champions.index.position') %></th>
+          <th scope="col" class="text-capitalize">
+            <a href="#" class="text-decoration-none fw-<%= @sort['win_rate'] ? 'bolder' : 'normal' %> text-white" data-action="click->champions-sort#update_sort" value="<%= 'win_rate' %>" data-sort-triggered="<%= @sort['win_rate'].present? %>" data-sort-value="<%= @sort['win_rate'] || 'desc' %>">
+              <%= t('champions.index.win_rate') %>
+              <% if @sort['win_rate'] %>
+                  <i class="fa fa-solid fa-angle-<%= @sort['win_rate'] == 'asc' ? 'up' : 'down' %> fw-bold"></i>
+              <% end %>
+            </a>
+          </th>
+          <th scope="col" class="text-capitalize">
+            <a href="#" class="text-decoration-none fw-<%= @sort['pick_rate'] ? 'bolder' : 'normal' %> text-white" data-action="click->champions-sort#update_sort" value="<%= 'pick_rate' %>" data-sort-triggered="<%= @sort['pick_rate'].present? %>" data-sort-value="<%= @sort['pick_rate'] || 'desc' %>">
+              <%= t('champions.index.pick_rate') %>
+              <% if @sort['pick_rate'] %>
+                  <i class="fa fa-solid fa-angle-<%= @sort['pick_rate'] == 'asc' ? 'up' : 'down' %> fw-bold"></i>
+              <% end %>
+            </a>
+          </th>
+        <thead>
+        <tbody class="align-middle">
+          <% @statistics.each_with_index do |statistic, idx| %>
+            <% champion = statistic.champion %>
+            <tr id="champion-<%= champion.key %>">
+              <th scope="row" class="small fw-lighter ms-2"><%= idx + 1 %></th>
+              <td>
+                <a class="d-flex align-items-center text-decoration-none text-light" href="<%= champion_path(champion) %>">
+                <%= image_tag("http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/#{champion.name_identifier}.png", class: 'mx-2 rounded-circle', size: 38) %>
+                <%= champion.name %>
+              </td>
+              <td class="font-monospace text-uppercase small fw-lighter">
+                <%= t("lanes.#{statistic.position}.name") %>
+              </td>
+              <td class="small fw-lighter">
+                <div class="hstack gap-3">
+                  <%= (statistic.win_rate * 100).round(2) %> %
+                  <%= render_win_rate_badge((statistic.win_rate * 100).round(2)) %>
+                </div>
+              </td>
+              <td class="small fw-lighter">
+                <div class="hstack gap-3">
+                  <%= (statistic.pick_rate * 100).round(2) %> %
+                  <%= render_pick_rate_badge((statistic.pick_rate * 100).round(2)) %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
