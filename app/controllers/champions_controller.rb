@@ -10,4 +10,3 @@ class ChampionsController < ApplicationController
     @champion = Champion.find(params[:id])
   end
 end
- 
