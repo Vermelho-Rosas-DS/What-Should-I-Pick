@@ -1,33 +1,40 @@
-<div class="container-fluid my-0 p-0 bg-indigo-900" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= @champ.name_identifier %>_0.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+<div class="container-fluid my-0 p-0 bg-indigo-900" style="background-image: url(<%= image_url 'vayne.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
     <div class="container-fluid shade-bg m-0 p-0" style="min-height: 100vh;">
-        <div class="d-flex flex-column align-items-center justify-content-center options-section">
-            <div>
-                <span class="display-5 text-light fw-bold">O campeão perfeito para você é...</span>
+        <div class="container-sm dark-card rounded-4 p-0" style="min-height: 100vh;">
+
+            <div class="container-fluid p-0 mask-champion-img">
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%', class: 'rounded-4' %>
             </div>
-            <div class="container-sm dark-card my-5 rounded-4 text-light">
-                <div class="hstack gap-3">
-                    <div class="m-2">
-                        <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/tiles/#{@champ.name_identifier}_0.jpg", alt: "", class: "rounded-circle", width: 300 %>
+            <div class="container-sm rounded-4 text-light" style="margin-top: -90px;">
+                <div class="text-center">
+                    <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
+                </div>
+                <div class="hstack gap-3 justify-content-center">
+                    <div class="mx-1">
+                        <span><%= t('common.win_rate') %>:</span>
+                        <span class="font-monospace"><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
+                        <span><%= render_win_rate_badge((@recommendation.win_rate * 100).ceil(2)) %></span>
                     </div>
-                    <div class="m-2 text-capitalized">
-                        <h1><%= @champ.name %></h1>
-                        <h4><%= @champ.title.titleize %></h4>
-                        <p><%= t('champions.index.win_rate') %></p>
-                        <div class="hstack gap-3 ms-3 mb-4">
-                            <span><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
-                            <span><%= render_win_rate_badge((@recommendation.win_rate * 100).ceil(2)) %></span>
-                        </div>
-                        <p><%= t('champions.index.pick_rate') %></p>
-                        <div class="hstack gap-3 ms-3 mb-4 font-monospaced">
-                            <span><%= (@recommendation.pick_rate * 100).ceil(2) %> %</span>
-                            <span><%= render_pick_rate_badge((@recommendation.pick_rate * 100).ceil(2)) %></span>
-                        </div>
+                    <h4 class="fw-bold display-6"><%= @champ.title.titleize %></h4>
+                    <div class="mx-1">
+                        <span><%= render_pick_rate_badge((@recommendation.pick_rate * 100).ceil(2)) %></span>
+                        <span><%= t('common.pick_rate') %>:</span>
+                        <span class="font-monospace"><%= (@recommendation.pick_rate * 100).ceil(2) %> %</span>
                     </div>
                 </div>
-                <h4>Lore</h4>
-                <p class="fw-light small"><%= @champ.lore %></p>
-                <h4>Dicas!</h4>
-                <p class="fw-light small"><%= @champ.ally_tips %></p>
+                <div class="hstack gap-5 mx-4 my-5" style="text-align: justify;">
+                    <div>
+                        <h4><%= t('common.lore') %></h4>
+                        <p class="fw-light"><%= @champ.lore %></p>
+                    </div>
+                    <% if @champ.ally_tips.present? %>
+                        <div class="vr"></div>
+                        <div>
+                            <h4><%= t('common.official_tips') %></h4>
+                            <p class="fw-light"><%= @champ.ally_tips %></p>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

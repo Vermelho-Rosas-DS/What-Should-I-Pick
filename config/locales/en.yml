@@ -128,6 +128,7 @@ en:
       page_title: "Recommendation #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Get a recommendation! - What Should I Pick
+    show_open_ai_tips: Show tips for this pick
   champions:
     index:
       page_title: Champions List - What Should I Pick
@@ -164,6 +165,11 @@ en:
         rare: rare
         very_rare: very rare
         odd: odd
+  common:
+    win_rate: Win rate
+    pick_rate: Pick rate
+    lore: Lore
+    official_tips: Official tips
   home:
     start_button: Let's start!
     home_text: |

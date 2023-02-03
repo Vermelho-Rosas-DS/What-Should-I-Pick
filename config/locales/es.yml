@@ -134,6 +134,11 @@ es:
         rare: raro
         very_rare: muy raro
         odd: peculiar
+  common:
+    win_rate: Ratio de victoria
+    pick_rate: Tasa de selección
+    lore: Lore
+    official_tips: Consejos Oficiales
   home:
     start_button: ¡Para comenzar!
     home_text: |
