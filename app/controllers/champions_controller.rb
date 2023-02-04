@@ -8,11 +8,9 @@ class ChampionsController < ApplicationController
     @sort = { field => sort_type }
     @position = params[:position] || 'all'
     @tier = params[:tier] || 'all'
-
-    ## TODO - botar um cache aqui utilizando o tier e a position na chave do cache
-    ## Inicio do Cache
-    @statistics = Statistic.filtered_by(tier: @tier, position: @position).includes(:champion)
-    ## Fim do cache
+    @statistics = Rails.cache.fetch("champions#index/#{@tier}/#{@position}", expires_in: 12.hours) do
+      Statistic.filtered_by(tier: @tier, position: @position).includes(:champion).to_a
+    end
 
     case field
     when 'name_identifier'
