@@ -18,11 +18,12 @@ class RecommendationsController < ApplicationController
       champ_key = estats.champion_key
       @champ = Champion.where(key: champ_key).first
       @recommendation = Recommendation.create(
-        champion_key: estats.champion_key, 
-        win_rate: estats.win_rate, 
-        pick_rate: estats.pick_rate, 
+        champion_key: estats.champion_key,
+        win_rate: estats.win_rate,
+        pick_rate: estats.pick_rate,
         tier: estats.tier,
-        position: estats.position)
+        position: estats.position
+      )
       if @recommendation.persisted?
         redirect_to recommendation_path(@recommendation)
       else
