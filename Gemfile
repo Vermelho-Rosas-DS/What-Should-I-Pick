@@ -34,7 +34,7 @@ gem 'flag-icons-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 gem 'pry-nav'
 

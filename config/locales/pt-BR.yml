@@ -98,6 +98,10 @@ pt-BR:
       page_title: "Recomendação #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Receba uma recomendação! - What Should I Pick
+    feedback_form_title: "Gostou da recomendação? Conta pra gente! 😀"
+    additional_comments: Comentários adicionais
+    your_opinion_placeholder: Sua sincera opinião aqui...
+    submit_feedback: Enviar
   champions:
     index:
       page_title: Lista de Campeões - What Should I Pick
