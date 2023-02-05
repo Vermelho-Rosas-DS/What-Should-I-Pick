@@ -30,15 +30,15 @@ class StatisticTest < ActiveSupport::TestCase
     aatrox = champions(:aatrox)
     garen = champions(:garen)
 
-    statistic_1 = Statistic.create({tier: 'all', position: 'top', win_rate: 0.51, pick_rate: 0.01, role: 'fighter', champion: aatrox})
-    statistic_2 = Statistic.create({tier: 'all', position: 'top', win_rate: 0.50, pick_rate: 0.02, role: 'marksman', champion: garen})
-    statistic_3 = Statistic.create({tier: 'all', position: 'mid', win_rate: 0.49, pick_rate: 0.02, role: 'support', champion: aatrox})
-    statistic_4 = Statistic.create({tier: 'all', position: 'mid', win_rate: 0.52, pick_rate: 0.03, role: 'tank', champion: garen})
+    statistic1 = Statistic.create({ tier: 'all', position: 'top', win_rate: 0.51, pick_rate: 0.01, role: 'fighter', champion: aatrox })
+    statistic2 = Statistic.create({ tier: 'all', position: 'top', win_rate: 0.50, pick_rate: 0.02, role: 'marksman', champion: garen })
+    statistic3 = Statistic.create({ tier: 'all', position: 'mid', win_rate: 0.49, pick_rate: 0.02, role: 'support', champion: aatrox })
+    statistic4 = Statistic.create({ tier: 'all', position: 'mid', win_rate: 0.52, pick_rate: 0.03, role: 'tank', champion: garen })
 
-    assert_equal statistic_2, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all', minimum_pick_rate: 0.015).first
-    assert_equal statistic_1, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all').first
-    assert_equal statistic_3, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'support').first
-    assert_equal statistic_4, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'all', minimum_pick_rate: 0.02).first
-    assert_equal statistic_4, Statistic.most_victorious_statistic_for.first
+    assert_equal statistic2, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all', minimum_pick_rate: 0.015).first
+    assert_equal statistic1, Statistic.most_victorious_statistic_for(tier: 'all', position: 'top', role: 'all').first
+    assert_equal statistic3, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'support').first
+    assert_equal statistic4, Statistic.most_victorious_statistic_for(tier: 'all', position: 'all', role: 'all', minimum_pick_rate: 0.02).first
+    assert_equal statistic4, Statistic.most_victorious_statistic_for.first
   end
 end

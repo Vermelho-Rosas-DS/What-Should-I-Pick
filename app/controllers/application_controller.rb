@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def bad_request(custom_message = nil)
-    raise ActionController::BadRequest, custom_message || "Bad request"
+    raise ActionController::BadRequest, custom_message || 'Bad request'
   end
 
   private
