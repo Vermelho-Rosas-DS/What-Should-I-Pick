@@ -387,3 +387,7 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  footer:
+    what: 'What is the project?'
+    about: "What Should I Pick is an academic project carried out in the Software Development discipline at the University of Brasilia. The objective of the application is to help players of the video game League Of Legends to choose their champion (in-game character) in an optimal way. That is, taking into account the roles that the player wants to play in the game's matches and the statistics compiled on each champion, namely: victory rate, pick rate, etc..."
+    creators: 'Contributors'

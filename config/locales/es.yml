@@ -360,3 +360,7 @@ es:
       long: "%-d de %B de %Y %H:%M"
       short: "%-d de %b %H:%M"
     pm: pm
+  footer:
+    what: '¿Cuál es el proyecto?'
+    about: 'What Should I Pick es un proyecto académico realizado en la disciplina de Desarrollo de Software en la Universidad de Brasilia. El objetivo de la aplicación es ayudar a los jugadores del videojuego League Of Legends a elegir su campeón (personaje del juego) de manera óptima. Es decir, teniendo en cuenta los roles que el jugador quiere desempeñar en las partidas del juego y las estadísticas que se elaboran sobre cada campeón, a saber: porcentaje de victorias, porcentaje de picks, etc...'
+    creators: 'Contribuyentes'
