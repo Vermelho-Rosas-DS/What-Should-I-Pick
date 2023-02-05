@@ -98,10 +98,15 @@ es:
       page_title: "Recomendacione #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Obtener una recomendación! - What Should I Pick
-    feedback_form_title: "¿Te ha gustado esta recomendación? Dinos 😀"
-    additional_comments: Comentarios adicionales
-    your_opinion_placeholder: Tu opinión aquí...
-    submit_feedback: Entregar
+    feedback:
+      score:
+        negative: "Al jugador no le gustó esta recomendación. 😭"
+        positive: "¡El jugador aprobó esta recomendación! 😍 👍"
+      form_title: "¿Te ha gustado esta recomendación? Dinos 😀"
+      additional_comments:
+        label: Comentarios adicionales
+        place_holder: Tu opinión aquí...
+      submit: Entregar
   champions:
     index:
       page_title: Lista de Campeones - What Should I Pick

@@ -129,10 +129,15 @@ en:
     new:
       page_title: Get a recommendation! - What Should I Pick
     show_open_ai_tips: Show tips for this pick
-    feedback_form_title: "Did you like this recommendation? Tell us 😀"
-    additional_comments: Additional comments
-    your_opinion_placeholder: Your opinion here...
-    submit_feedback: Submit
+    feedback:
+      score:
+        negative: "Player didn't like this recommendation. 😭"
+        positive: "This recommendation has been approved by the player! 😍 👍"
+      form_title: "Did you like this recommendation? Tell us 😀"
+      additional_comments:
+        label: Additional comments
+        place_holder: Your opinion here...
+      submit: Submit
   champions:
     index:
       page_title: Champions List - What Should I Pick

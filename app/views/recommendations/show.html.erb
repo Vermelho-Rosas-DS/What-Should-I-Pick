@@ -5,11 +5,11 @@
             <div class="container-fluid p-0 mask-champion-img">
                 <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%', class: 'rounded-4' %>
             </div>
-            <div class="container-sm rounded-4 text-light" style="margin-top: -90px;">
+            <div class="container-sm rounded-4 text-light px-0" style="margin-top: -90px;">
                 <div class="text-center">
                     <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
                 </div>
-                <div class="hstack gap-3 justify-content-center">
+                <div class="hstack gap-3 justify-content-center mb-4">
                     <div class="mx-1">
                         <span><%= t('common.win_rate') %>:</span>
                         <span class="font-monospace"><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
@@ -23,11 +23,15 @@
                     </div>
                 </div>
                 <% if @recommendation.feedback_score.present? %>
-                    <div class="text-center">
-                        <%= @recommendation.feedback_score_is_positive? ? 'Recomendação aprovada pelo jogador! 😀' : 'O Jogador não curtiu essa recomendação 😥' %>
+                    <div class="py-2 text-center recommendation-<%= @recommendation.feedback_score_is_positive? ? 'positive' : 'negative' %>">
+                        <p>
+                            <span class="display-6 fw-bold">#<%= @recommendation.id %></span>
+                            <span class="fw-bolder"><%= @recommendation.feedback_score_is_positive? ? t('recommendations.feedback.score.positive') : t('recommendations.feedback.score.negative') %><span>
+                        </p>
+                        <p class="small fw-lighter"><%= @recommendation.created_at %></p>
                     </div>
                 <% end %>
-                <div class="hstack gap-5 mx-4 my-5" style="text-align: justify;">
+                <div class="hstack gap-5 m-5 px-2 " style="text-align: justify;">
                     <div>
                         <h4><%= t('common.lore') %></h4>
                         <p class="fw-light"><%= @champ.lore %></p>
@@ -41,22 +45,22 @@
                     <% end %>
                 </div>
                 <% if @recommendation.feedback_score.blank? %>
-                    <div class="d-flex flex-column justify-content-center align-items-center fw-light">
+                    <div class="d-flex flex-column justify-content-center align-items-center fw-light p-5 feedback-section">
                         <div data-controller="recommendation-feedback">
-                            <p><%= t('recommendations.feedback_form_title') %></p>
+                            <p><%= t('recommendations.feedback.form_title') %></p>
                             <div class="mb-2 text-center">
                                 <a href="#" class="m-2 h2 text-decoration-none text-light fw-light" data-action="recommendation-feedback#selectScore" value="1"><i class="fa-regular fa-thumbs-up" data-recommendation-feedback-target="thumbs"></i></a>
                                 <a href="#" class="m-2 h2 text-decoration-none text-light fw-light" data-action="recommendation-feedback#selectScore" value="0"><i class="fa-regular fa-thumbs-down" data-recommendation-feedback-target="thumbs"></i></a>
                             </div>
-                            <%= form_with url: recommendation_path(@recommendation), method: :patch, id: 'recommendation-feedback-form' do |form| %>
+                            <%= form_with url: recommendation_path(@recommendation), method: :patch, id: 'recommendation-feedback-form', class: 'mb-5' do |form| %>
                                 <%= form.hidden_field :feedback_score %>
-                                <label for="feedback_text" class="form-label fw-lighter small"><%= t('recommendations.additional_comments') %></label>
-                                <textarea name="feedback_text" id="feedback_text" class="form-control" rows="2" placeholder="<%= t('recommendations.your_opinion_placeholder') %>"></textarea>
+                                <label for="feedback_text" class="form-label fw-lighter small"><%= t('recommendations.feedback.additional_comments.label') %></label>
+                                <textarea name="feedback_text" id="feedback_text" class="form-control" rows="2" placeholder="<%= t('recommendations.feedback.additional_comments.place_holder') %>"></textarea>
                                 <div class="text-center my-2">
-                                    <a class="btn btn-outline-success" data-action="recommendation-feedback#submitForm"><%= t('recommendations.submit_feedback') %></a>
+                                    <a class="btn btn-primary" data-action="recommendation-feedback#submitForm"><%= t('recommendations.feedback.submit') %></a>
                                 </div>
                             <% end %>
-                            </div>
+                            <p class="text-center small fw-lighter"><%= @recommendation.created_at %></p>
                         </div>
                     </div>
                 <% end %>

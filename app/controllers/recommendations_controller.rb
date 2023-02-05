@@ -32,4 +32,18 @@ class RecommendationsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def update
+    recommendation = Recommendation.find(params[:id])
+
+    bad_request unless params[:feedback_score].to_s.in?(['0', '1'])
+    bad_request if params[:feedback_text].length > 250
+
+    recommendation.feedback_score = params[:feedback_score].to_i
+    recommendation.feedback_text = params[:feedback_text]
+
+    recommendation.save
+
+    redirect_to recommendation_path(recommendation)
+  end
 end
