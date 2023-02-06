@@ -1,37 +1,23 @@
-<headfooter>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%=stylesheet_link_tag "stylehome.css" %>
-    <title>What Should I Pick</title>
-</headfooter>
-</bodyfooter>
-    <div class="main-content">
-    </div>
-
-    <!-- footer -->
-    <div class="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h4><%= t('footer.what') %></h4>
-                <a><%= t('footer.about') %></a>
-            </div>
-            <div class="footer-section contact">
-                <ul style="list-style-type:none;">
-                    <li><h6><%= t('footer.creators') %></h6></li>
-                    <li><a href="https://github.com/CaioHabibe">Caio Habibe</a></li>
-                    <li><a href="https://github.com/EliasOliver21">Elias Oliveira</a></li>
-                    <li><a href="https://github.com/GabrielCastelo-31">Gabriel Castelo</a></li>
-                    <li><a href="https://github.com/IderlanJ">Iderlan Junio</a></li>
-                    <li><a href="https://github.com/pedroeverton217">Pedro Everton</a></li>
-                    <li><a href="https://github.com/VictorGCOSTA">Victor Costa</a></li>
-                    <li><a href="https://github.com/VictorJorgeFGA">Victor Jorge</a></li>
-                </ul>
-            </div>
+<footer class="m-0 p-0 bg-dark">
+    <div class="d-flex flex-wrap justify-content-between align-items-center py-5">
+        <div class="col-md-4 mb-0">
+            <h4 class="mx-5"><%= t('footer.what') %></h4>
+            <p class="fw-lighter small text-light mx-5"><%= t('footer.about') %></p>
         </div>
-
-        <div class="footer-bottom">
-            What Should I Pick isn't endorsed or sponsored by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+        <div class="col-md-4 mb-0">
+            <ul style="list-style-type:none;">
+                <li><h5 class="fw-bold"><%= t('footer.creators') %></h5></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/CaioHabibe">Caio Habibe</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/EliasOliver21">Elias Oliveira</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/GabrielCastelo-31">Gabriel Castelo</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/IderlanJ">Iderlan Junio</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/pedroeverton217">Pedro Everton</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/VictorGCOSTA">Victor Costa</a></li>
+                <li><a class="text-decoration-none text-light small fw-light" href="https://github.com/VictorJorgeFGA">Victor Jorge</a></li>
+            </ul>
         </div>
     </div>
-    <!-- // footer -->
-
-</bodyfooter>
+    <div class="text-center pb-5">
+        <span class="small text-muted fw-lighter"> What Should I Pick isn't endorsed or sponsored by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</span>
+    </div>
+</footer>
