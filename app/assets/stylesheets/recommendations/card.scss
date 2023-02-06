@@ -20,12 +20,25 @@
     margin-top: -65px;
     background-color: #1E1828;
     padding: 20px;
-    width: 100px;
+    max-width: 100px;
 }
 
 .card-image {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+}
+
+@media only screen and (max-width: 960px){
+    .card-description {
+        display: none;
+    }
+
+    .card-icon {
+        margin-top: -3rem;
+        background-color: #1E1828;
+        padding: 1.2rem;
+        width: 15rem;
+    }
 }
 
 // Turn card colored on hover

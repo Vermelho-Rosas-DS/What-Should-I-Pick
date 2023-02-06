@@ -5,18 +5,18 @@
             <div class="container-fluid p-0 mask-champion-img">
                 <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%', class: 'rounded-4' %>
             </div>
-            <div class="container-sm rounded-4 text-light px-0" style="margin-top: -90px;">
+            <div class="container-sm rounded-4 text-light px-0 recommendation-info-section">
                 <div class="text-center">
                     <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
                 </div>
-                <div class="hstack gap-3 justify-content-center mb-4">
-                    <div class="mx-1">
+                <div class="pick-label-section mb-4 mx-2">
+                    <div class="mx-1 text-center">
                         <span><%= t('common.win_rate') %>:</span>
                         <span class="font-monospace"><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
                         <span><%= render_win_rate_badge((@recommendation.win_rate * 100).ceil(2)) %></span>
                     </div>
-                    <h4 class="fw-bold display-6"><%= @champ.title.titleize %></h4>
-                    <div class="mx-1">
+                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                    <div class="mx-1 text-center">
                         <span><%= render_pick_rate_badge((@recommendation.pick_rate * 100).ceil(2)) %></span>
                         <span><%= t('common.pick_rate') %>:</span>
                         <span class="font-monospace"><%= (@recommendation.pick_rate * 100).ceil(2) %> %</span>
@@ -31,9 +31,9 @@
                         <p class="small fw-lighter"><%= @recommendation.created_at %></p>
                     </div>
                 <% end %>
-                <div class="hstack gap-5 m-5 px-2 " style="text-align: justify;">
+                <div class="tips-section m-5 px-2">
                     <div>
-                        <h4><%= t('recommendations.about_the_pick.title') %></h4>
+                        <h4 class="fw-bold"><%= t('recommendations.about_the_pick.title') %></h4>
                         <ul class="fw-light">
                             <li><%= t('lanes.title', count: 1) %>: <%= t("lanes.#{@recommendation.position}.name") %></li>
                             <li><%= t('tiers.title', count: 1) %>: <%= t("tiers.#{@recommendation.tier}.name") %></li>
@@ -43,10 +43,12 @@
                         <p class="fw-light"><%= t("recommendations.about_the_pick.considerations.pick_rate.#{ pick_rate_label_and_color((@recommendation.pick_rate * 100).ceil(2))[:label]}") %></p>
                     </div>
                     <% if @champ.ally_tips.present? %>
-                        <div class="vr"></div>
-                        <div>
-                            <h4><%= t('common.official_tips') %></h4>
-                            <p class="fw-light"><%= @champ.ally_tips %></p>
+                        <div class="hstack gap-4">
+                            <div class="vr tips-vr"></div>
+                            <div>
+                                <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                                <p class="fw-light"><%= @champ.ally_tips %></p>
+                            </div>
                         </div>
                     <% end %>
                 </div>

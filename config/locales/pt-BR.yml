@@ -72,7 +72,7 @@ pt-BR:
       description: Os jogadores desta liga são, sem dúvida, experientes. Eles geralmente estão lutando entre os melhores
     challenger:
       name: Desafiante
-      description: This is the highest league in the game. Players in this league are fighting to be the best
+      description: Esse é o elo mais alto no jogo. Jogadores desse elo estão brigando para serem os melhores do servidor.
     all:
       name: Todos os elos
       description: Todos os elos
@@ -82,22 +82,22 @@ pt-BR:
       other: Roles
     tank:
       name: Tanque
-      description: "Os tanques são campeões corpo a corpo duros na queda, que sacrificam danos em troca de um poderoso controle de grupo. Embora seja capaz de enfrentar inimigos em combate, o objetivo de um tanque geralmente não é matar os oponentes."
+      description: "Os tanques são campeões corpo a corpo duros na queda, que sacrificam danos em troca de um poderoso controle de grupo."
     marksman:
       name: Atirador
       description: "Os atiradores são campeões de longo alcance cujo poder gira quase exclusivamente em torno de seus ataques básicos: usando seu alcance para causar dano contínuo massivo à distância"
     support:
       name: Suporte
-      description: "Os suportes auxiliam seus aliados com uma potente utilidade, e mantêm os inimigos afastados com controle de grupo. Fracos quando estão sozinhos, os suportes são capazes de amplificar massivamente o poder de seus companheiros de equipe para se tornar a classe mais forte em combate em grupo (ou teamfights)"
+      description: "Os suportes auxiliam seus aliados com uma potente utilidade, e mantêm os inimigos afastados com controle de grupo."
     fighter:
       name: Lutador
-      description: "Lutadores (também conhecidos como Bruisers) são um grupo diversificado de combatentes de curto alcance que se destacam tanto em lidar quanto em sobreviver ao dano. Com fácil acesso a dano pesado e contínuo (ou DPS) e uma série de defesas inatas"
+      description: "Lutadores (também conhecidos como Bruisers) são um grupo diversificado de combatentes de curto alcance que se destacam tanto em lidar quanto em sobreviver ao dano."
     assassin:
       name: Assassino
-      description: "Assassinos são campeões altamente móveis que se especializam em dano de rajada de alvo único. O que geralmente falta em resiliência, eles mais do que compensam com sua capacidade de cobrir rapidamente grandes distâncias, matar alvos prioritários e recuar com a mesma rapidez."
+      description: "Assassinos são campeões altamente móveis que se especializam em dano de rajada de alvo único."
     mage:
       name: Mago
-      description: "Os magos são campeões que normalmente possuem grande alcance, área de dano de efeito baseado em habilidade e controle de grupo, e que usam todas essas forças em conjunto para prender e destruir inimigos à distância."
+      description: "Os magos são campeões que normalmente possuem grande alcance, área de dano de efeito baseado em habilidade e controle de grupo."
     preferred_role_question: "Qual é a sua role preferida?"
     no_role: "Não tenho uma role preferida"
   recommendations:
