@@ -183,12 +183,9 @@ pt-BR:
     lore: Lore
     official_tips: Dicas oficiais
   home:
+    title: "O que devo escolher?"
     start_button: Começar!
-    home_text: |
-      Descubra qual Champion mais se encaixa com seu estilo de jogo.
-      Veja todas as estatísticas desse de cada Champion (winrate, picks rates, ban rates e etc).
-      Saiba quais Champions os elos mais altos utilizam.
-      Melhore sua jogabilidade e suba o nivel do seu jogo hoje mesmo.
+    text: "Descubra qual Campeão mais se encaixa com seu estilo de jogo. Veja todas as estatísticas de cada campeão (taxa de vitórias, taxa de pick). Saiba quais campeões os elos mais altos utilizam. Melhore sua jogabilidade e suba o nivel do seu jogo hoje mesmo."
 
   activerecord:
     errors:

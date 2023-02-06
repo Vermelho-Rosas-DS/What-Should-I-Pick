@@ -215,11 +215,8 @@ en:
     official_tips: Official tips
   home:
     start_button: Let's start!
-    home_text: |
-      Find out which Champion best fits your play style.
-      See all the stats of each Champion (winrate, picks rates, ban rates and etc).
-      Know which Champions the highest links use.
-      Improve your gameplay and level up your game today.
+    title: "What Should I Pick?"
+    text: "Find out which Champion best fits your play style. See all the stats of each Champion (winrate, picks rates). Check out which Champions the top players are picking. Improve your gameplay and level up your performance today."
 
   activerecord:
     errors:

@@ -183,12 +183,9 @@ es:
     lore: Lore
     official_tips: Consejos Oficiales
   home:
+    title: ¿Qué debo escoger?
     start_button: ¡Para comenzar!
-    home_text: |
-      Descubre qué Campeón se adapta mejor a tu estilo de juego.
-      Vea todas las estadísticas de cada Campeón (winrate, picks rates, ban rates e etc).
-      Sepa qué campeones usan los enlaces más altos.
-      Mejora tu juego y sube de nivel tu juego hoy.
+    text: "Descubre qué Campeón se adapta mejor a tu estilo de juego. Vea todas las estadísticas de cada Campeón (winrate, picks rates). Sepa qué campeones usan los enlaces más altos. Mejora tu juego y sube de nivel tu juego hoy."
 
   activerecord:
     errors:
