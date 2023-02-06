@@ -186,7 +186,7 @@
  }
 
  .shade-bg {
-     background: rgba(black, .55);
+     background: rgba(black, .7);
  }
 
  .shade-mask {
@@ -223,7 +223,30 @@
 @import "recommendations/card";
 @import "recommendations/section";
 @import "typewriter";
+@import "home/home";
 
 .grid-container {
     display: grid;
+}
+
+/* Chrome version 29 and above */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+    .mask-champion-img {
+        -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
+    }
+}
+
+/** Microsoft Edge */
+@supports (-ms-ime-align: auto) {
+    .mask-champion-img {
+        -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
+    }
+}
+
+/** Mozilla Firefox */
+@-moz-document url-prefix() {
+    .mask-champion-img {
+        mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
+    }
 }

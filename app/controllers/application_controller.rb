@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError, 'Not Found'
   end
 
+  def bad_request(custom_message = nil)
+    raise ActionController::BadRequest, custom_message || 'Bad request'
+  end
+
   private
 
   def set_default_page_title

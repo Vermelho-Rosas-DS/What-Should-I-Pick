@@ -17,6 +17,71 @@
     gap: 2.5rem 10rem;
 }
 
+.tips-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.recommendation-info-section {
+    margin-top: -5rem;
+}
+
+.pick-label-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 1rem;
+}
+
+@media only screen and (max-width: 960px){
+    .position-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tier-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 2.5rem;
+    }
+
+    .role-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1rem;
+    }
+
+    .tips-section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tips-vr {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .recommendation-info-section {
+        margin-top: -2rem;
+    }
+
+    .pick-label-section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem 1rem;
+    }
+}
+
 .tier-card {
     height: 100% !important;
+}
+
+.feedback-section {
+    background-image: linear-gradient(45deg, #291340, #192b4d, #3b1b23);
+}
+
+.recommendation-positive {
+    background-image: linear-gradient(45deg, #291340, #0f6146, #3b1b23);
+}
+
+.recommendation-negative {
+    background-image: linear-gradient(45deg, #291340, #4d1a1a, #3b1b23);
 }

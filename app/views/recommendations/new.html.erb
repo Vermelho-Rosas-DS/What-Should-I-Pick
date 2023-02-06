@@ -1,6 +1,6 @@
 <div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
     <div class="container-fluid top-gradient px-0" data-controller="new-recommendation-form">
-        <div class="d-flex flex-column align-items-center justify-content-center options-section my-5">
+        <div class="d-flex flex-column align-items-center justify-content-center options-section">
             <div class="typewriter my-5">
                 <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
             </div>
@@ -12,9 +12,9 @@
                             <div class="d-flex flex-column align-items-center justify-content-around">
                                 <%= image_tag("#{lane}_image.jpg", class: 'card-image img-fluid', alt: "") %>
                                 <%= image_tag("#{lane}_icon.svg", class: 'card-icon rounded-circle', alt: "") %>
-                                <section class="mx-4 mb-4 text-center">
-                                    <h2><%= t("lanes.#{lane}.name") %></h2>
-                                    <p class="fw-lighter"><%= t("lanes.#{lane}.description") %></p>
+                                <section class="px-4 pb-4 text-center">
+                                    <h4 class="fw-bolder"><%= t("lanes.#{lane}.name") %></h4>
+                                    <p class="fw-lighter small card-description"><%= t("lanes.#{lane}.description") %></p>
                                 </section>
                             </div>
                         </a>
@@ -32,10 +32,10 @@
                     <% %w[unranked iron bronze silver gold platinum diamond master grandmaster challenger].each do |tier| %>
                         <a href="#choose-role" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectTier" data-new-recommendation-form-target="tier" value="<%= tier == 'unranked' ? 'all' : tier %>">
                             <div class="d-flex flex-column align-items-center justify-content-around">
-                                <%= image_tag("Emblem_#{tier.capitalize}.png", class: 'card-image my-3 img-fluid', alt: "") %>
-                                <section class="mx-4 mb-4 text-center">
-                                    <h2><%= t("tiers.#{tier}.name") %></h2>
-                                    <p class="fw-lighter"><%= t("tiers.#{tier}.description") %></p>
+                                <%= image_tag("Emblem_#{tier.capitalize}.png", class: 'card-image my-3 img-fluid', alt: "", width: '200px') %>
+                                <section class="px-4 pb-4 text-center">
+                                    <h4 class="fw-bolder"><%= t("tiers.#{tier}.name") %></h4>
+                                    <p class="fw-lighter small card-description"><%= t("tiers.#{tier}.description") %></p>
                                 </section>
                             </div>
                         </a>
@@ -52,10 +52,10 @@
                     <% %w[tank marksman support fighter assassin mage].each do |role| %>
                         <a href="#submit-recommendation" class="text-decoration-none text-light card dark-card hoverable-grayscaled-card rounded-4" data-action="new-recommendation-form#selectRole" data-new-recommendation-form-target="role" value="<%= role %>">
                             <div class="d-flex flex-column align-items-center justify-content-around">
-                                <%= image_tag("#{role}_role_image.svg", class: 'card-image my-3 img-fluid', alt: "") %>
+                                <%= image_tag("#{role}_role_image.svg", class: 'card-image my-3 img-fluid', alt: "", width: '100px') %>
                                 <section class="mx-4 mb-4 text-center">
-                                    <h2><%= t("roles.#{role}.name") %></h2>
-                                    <p class="fw-lighter"><%= t("roles.#{role}.description") %></p>
+                                    <h4 class="fw-bolder"><%= t("roles.#{role}.name") %></h4>
+                                    <p class="fw-lighter small card-description"><%= t("roles.#{role}.description") %></p>
                                 </section>
                             </div>
                         </a>

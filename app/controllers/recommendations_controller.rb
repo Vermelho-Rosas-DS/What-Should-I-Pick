@@ -13,11 +13,23 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    estats = Statistic.where(tier: params[:tier], position: params[:position], role: params[:role]).order(:win_rate).last
-    if estats.present?
-      champ_key = estats.champion_key
-      @champ = Champion.where(key: champ_key).first
-      @recommendation = Recommendation.create(champion_key: estats.champion_key, win_rate: estats.win_rate, pick_rate: estats.pick_rate)
+    tier = params[:tier]
+    position = params[:position]
+    role = params[:role]
+
+    statistic = Statistic.best_statistic_for(tier:, position:, role:)
+
+    if statistic.present?
+      @champ = Champion.where(key: statistic.champion_key).first
+      @recommendation = Recommendation.create(
+        champion_key: statistic.champion_key,
+        win_rate: statistic.win_rate,
+        pick_rate: statistic.pick_rate,
+        tier: statistic.tier,
+        position: statistic.position,
+        role: statistic.role
+      )
+
       if @recommendation.persisted?
         redirect_to recommendation_path(@recommendation)
       else
@@ -26,5 +38,22 @@ class RecommendationsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def update
+    recommendation = Recommendation.find(params[:id])
+
+    feedback_score = params[:feedback_score].to_s == '' ? '1' : params[:feedback_score].to_s
+    feedback_text = params[:feedback_text].to_s
+
+    bad_request unless feedback_score.in?(['0', '1'])
+    bad_request if feedback_text.length > 250
+
+    recommendation.feedback_score = feedback_score.to_i
+    recommendation.feedback_text = feedback_text
+
+    recommendation.save
+
+    redirect_to recommendation_path(recommendation)
   end
 end

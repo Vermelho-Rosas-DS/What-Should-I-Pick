@@ -1,12 +1,78 @@
-<div class="text-light container-sm">
-    <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg" %>
-    <h1><%= @champ.name %></h1>
-    <h4><%= @champ.title %></h4>
-    <p><%= @champ.blurb %></p>
-    <h4>Dicas!</h4>
-    <p><%= @champ.ally_tips %></p>
-    <h4>Winrate</h4>
-    <p><%= @recommendation.win_rate %></p>
-    <h4>Pickrate</h4>
-    <p><%= @recommendation.pick_rate %></p>
+<div class="container-fluid my-0 p-0 bg-indigo-900" style="background-image: url(<%= image_url 'vayne.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+    <div class="container-fluid shade-bg m-0 p-0" style="min-height: 100vh;">
+        <div class="container-sm dark-card rounded-4 p-0" style="min-height: 100vh;">
+
+            <div class="container-fluid p-0 mask-champion-img">
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%', class: 'rounded-4' %>
+            </div>
+            <div class="container-sm rounded-4 text-light px-0 recommendation-info-section">
+                <div class="text-center">
+                    <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
+                </div>
+                <div class="pick-label-section mb-4 mx-2">
+                    <div class="mx-1 text-center">
+                        <span><%= t('common.win_rate') %>:</span>
+                        <span class="font-monospace"><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
+                        <span><%= render_win_rate_badge((@recommendation.win_rate * 100).ceil(2)) %></span>
+                    </div>
+                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                    <div class="mx-1 text-center">
+                        <span><%= render_pick_rate_badge((@recommendation.pick_rate * 100).ceil(2)) %></span>
+                        <span><%= t('common.pick_rate') %>:</span>
+                        <span class="font-monospace"><%= (@recommendation.pick_rate * 100).ceil(2) %> %</span>
+                    </div>
+                </div>
+                <% if @recommendation.feedback_score.present? %>
+                    <div class="py-2 text-center recommendation-<%= @recommendation.feedback_score_is_positive? ? 'positive' : 'negative' %>">
+                        <p>
+                            <span class="display-6 fw-bold">#<%= @recommendation.id %></span>
+                            <span class="fw-bolder"><%= @recommendation.feedback_score_is_positive? ? t('recommendations.feedback.score.positive') : t('recommendations.feedback.score.negative') %><span>
+                        </p>
+                        <p class="small fw-lighter"><%= @recommendation.created_at %></p>
+                    </div>
+                <% end %>
+                <div class="tips-section m-5 px-2">
+                    <div>
+                        <h4 class="fw-bold"><%= t('recommendations.about_the_pick.title') %></h4>
+                        <ul class="fw-light">
+                            <li><%= t('lanes.title', count: 1) %>: <%= t("lanes.#{@recommendation.position}.name") %></li>
+                            <li><%= t('tiers.title', count: 1) %>: <%= t("tiers.#{@recommendation.tier}.name") %></li>
+                            <li><%= t('roles.title', count: 1) %>: <%= t("roles.#{@recommendation.role}.name") %></li>
+                        </ul>
+                        <p class="fw-light"><%= t("recommendations.about_the_pick.considerations.win_rate.#{ win_rate_label_and_color((@recommendation.win_rate * 100).ceil(2))[:label]}") %></p>
+                        <p class="fw-light"><%= t("recommendations.about_the_pick.considerations.pick_rate.#{ pick_rate_label_and_color((@recommendation.pick_rate * 100).ceil(2))[:label]}") %></p>
+                    </div>
+                    <% if @champ.ally_tips.present? %>
+                        <div class="hstack gap-4">
+                            <div class="vr tips-vr"></div>
+                            <div>
+                                <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                                <p class="fw-light"><%= @champ.ally_tips %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <% if @recommendation.feedback_score.blank? %>
+                    <div class="d-flex flex-column justify-content-center align-items-center fw-light p-5 feedback-section">
+                        <div data-controller="recommendation-feedback">
+                            <p><%= t('recommendations.feedback.form_title') %></p>
+                            <div class="mb-2 text-center">
+                                <a href="#" class="m-2 h2 text-decoration-none text-light fw-light" data-action="recommendation-feedback#selectScore" value="1"><i class="fa-regular fa-thumbs-up" data-recommendation-feedback-target="thumbs"></i></a>
+                                <a href="#" class="m-2 h2 text-decoration-none text-light fw-light" data-action="recommendation-feedback#selectScore" value="0"><i class="fa-regular fa-thumbs-down" data-recommendation-feedback-target="thumbs"></i></a>
+                            </div>
+                            <%= form_with url: recommendation_path(@recommendation), method: :patch, id: 'recommendation-feedback-form', class: 'mb-5' do |form| %>
+                                <%= form.hidden_field :feedback_score %>
+                                <label for="feedback_text" class="form-label fw-lighter small"><%= t('recommendations.feedback.additional_comments.label') %></label>
+                                <textarea name="feedback_text" id="feedback_text" class="form-control" rows="2" placeholder="<%= t('recommendations.feedback.additional_comments.place_holder') %>"></textarea>
+                                <div class="text-center my-2">
+                                    <a class="btn btn-primary" data-action="recommendation-feedback#submitForm"><%= t('recommendations.feedback.submit') %></a>
+                                </div>
+                            <% end %>
+                            <p class="text-center small fw-lighter"><%= @recommendation.created_at %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
