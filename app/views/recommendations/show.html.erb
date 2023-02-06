@@ -33,8 +33,14 @@
                 <% end %>
                 <div class="hstack gap-5 m-5 px-2 " style="text-align: justify;">
                     <div>
-                        <h4><%= t('common.lore') %></h4>
-                        <p class="fw-light"><%= @champ.lore %></p>
+                        <h4><%= t('recommendations.about_the_pick.title') %></h4>
+                        <ul class="fw-light">
+                            <li><%= t('lanes.title', count: 1) %>: <%= t("lanes.#{@recommendation.position}.name") %></li>
+                            <li><%= t('tiers.title', count: 1) %>: <%= t("tiers.#{@recommendation.tier}.name") %></li>
+                            <li><%= t('roles.title', count: 1) %>: <%= t("roles.#{@recommendation.role}.name") %></li>
+                        </ul>
+                        <p class="fw-light"><%= t("recommendations.about_the_pick.considerations.win_rate.#{ win_rate_label_and_color((@recommendation.win_rate * 100).ceil(2))[:label]}") %></p>
+                        <p class="fw-light"><%= t("recommendations.about_the_pick.considerations.pick_rate.#{ pick_rate_label_and_color((@recommendation.pick_rate * 100).ceil(2))[:label]}") %></p>
                     </div>
                     <% if @champ.ally_tips.present? %>
                         <div class="vr"></div>

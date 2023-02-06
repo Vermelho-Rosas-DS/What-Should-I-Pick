@@ -15,17 +15,39 @@ class Statistic < ApplicationRecord
     end
   }
 
-  scope :most_victorious_statistic_for, ->(tier: 'all', position: 'all', role: 'all', minimum_pick_rate: 0.0) {
+  scope :most_victorious_statistic_for, ->(tier: 'all', position: 'all', role: 'all', minimum_pick_rate: 0.0, minimum_win_rate: 0.0) {
     query_params = {
       tier:
     }.with_indifferent_access
     query_params[:position] = position if position.to_s.in?(positions.keys)
     query_params[:role] = role if role.to_s != 'all' && !role.nil?
 
-    where(query_params).where('pick_rate >= ?', minimum_pick_rate).order(win_rate: :desc).limit(1)
+    where(query_params).where('pick_rate >= ? AND win_rate >= ?', minimum_pick_rate, minimum_win_rate).order(win_rate: :desc).limit(1)
   }
 
+  def self.best_statistic_for(tier:, position:, role:)
+    statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:, minimum_pick_rate: Statistic.sporadic_pick_rate, minimum_win_rate: 0.5).first
+
+    if statistic.blank?
+      statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:, minimum_pick_rate: Statistic.rare_pick_rate, minimum_win_rate: 0.5).first
+    end
+
+    if statistic.blank?
+      statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:).first
+    end
+
+    statistic
+  end
+
   def self.minimum_reliable_pick_rate
+    sporadic_pick_rate
+  end
+
+  def self.sporadic_pick_rate
     0.012
+  end
+
+  def self.rare_pick_rate
+    0.006
   end
 end

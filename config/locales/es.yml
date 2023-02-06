@@ -11,6 +11,9 @@ es:
     spanish: 'Español'
     portuguese: 'Português'
   lanes:
+    title:
+      one: Calle
+      other: Calles
     preffered_lane_question: ¿Con qué calle te identificas más?
     no_lane: No tengo una calle preferida
     top:
@@ -35,6 +38,9 @@ es:
       name: Todas las posiciones
       description: Todas las posiciones
   tiers:
+    title:
+      one: Liga
+      other: Ligas
     current_tier_question: ¿Cuál es tu nivel actual?
     unranked_button: No estoy clasificado
     unranked:
@@ -71,6 +77,9 @@ es:
       name: Todas las ligas
       description: Todas las ligas
   roles:
+    title:
+      one: Rol
+      other: Roles
     tank:
       name: Tanques
       description: "Los tanques son campeones cuerpo a cuerpo duros que sacrifican el daño a cambio de un poderoso control de multitudes. Si bien puede enfrentarse a los enemigos en combate, el propósito de un tanque no suele ser matar a los oponentes."
@@ -98,6 +107,31 @@ es:
       page_title: "Recomendacione #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Obtener una recomendación! - What Should I Pick
+    about_the_pick:
+      title: Sobre la recomendación!
+      description: Esta recomendación se hizo por jugar en el %{lane}, en el elo %{tier} con un campeón %{role}.
+      considerations:
+        win_rate:
+          legendary: Esta elección tiene un rendimiento de tasa de ganancias legendario, lo que significa que los jugadores están ganando juegos con mucha frecuencia con eso.
+          outstanding: Esta selección tiene un desempeño sobresaliente en la tasa de ganancias, lo que significa que los jugadores tienden a ganar la mayoría de los juegos cuando se presentan con esta selección.
+          very_good: Esta selección tiene un muy buen desempeño en la tasa de ganancias, lo que significa que los jugadores se divierten la mayor parte del tiempo que se les ocurre esta selección, y están ganando lo que necesitan para ganar.
+          good: Esta elección tiene un buen rendimiento en la tasa de ganancias, lo que significa que los jugadores se divierten la mayor parte del tiempo que se les ocurre esta elección.
+          ok: Esta elección tiene un buen desempeño en la tasa de ganancias, lo que significa que los jugadores pueden ganar a menudo a pesar de perder un poco también.
+          below_average: Esta elección está por debajo del promedio, a menos que puedas jugar con este campeón a diferencia de todos los demás, te recomendamos encarecidamente que pruebes una combinación diferente. Y sí, lo sentimos, pero esta es la mejor elección disponible para lo que ha pedido.
+          poor: Esta elección tiene un bajo rendimiento en la tasa de ganancias, le recomendamos encarecidamente que pruebe una combinación diferente. Y sí, lo sentimos, pero esta es la mejor elección disponible para lo que ha pedido.
+          terrible: Esta selección es terrible. Le recomendamos que pruebe una combinación diferente, aunque esta sigue siendo la mejor elección para lo que ha pedido.
+          garbage: Esta elección es ... Hermano, solo ... No lo hagas.
+        pick_rate:
+          fever: Esta elección es como la fiebre, todo el mundo ha tenido una experiencia con eso. Esto significa que si lo intentas, probablemente terminarás teniendo el mismo índice de ganancias que todos los demás.
+          super_popular: Esta es una elección súper popular. La gente está muy emocionada de jugar con eso. Esto también aumenta la fiabilidad de la tasa de ganancias. Por lo tanto, puede suponer que esta tasa de ganancias que ve probablemente será su desempeño.
+          popular: Esta es una elección popular. La gente está emocionada por jugar con eso. Esto también aumenta la fiabilidad de la tasa de ganancias. Por lo tanto, puede suponer que esta tasa de victorias que ve probablemente será su rendimiento, más o menos.
+          frequent: Esta es una elección frecuente. La gente juega con eso muy a menudo. Entonces, considerando eso, la tasa de ganancias de esta elección probablemente refleja la realidad.
+          common: Esta es una selección común. Vas a ver eso mucho en tu juego diario. Entonces, considerando eso, la tasa de ganancias de esta elección probablemente refleja la realidad.
+          sporadic: Esta es una elección esporádica. Todavía puede ver personas que aparecen con eso a veces, pero la tasa de ganancias podría terminar siendo un poco diferente para usted.
+          forgotten: Esta es una elección olvidada. Las personas que todavía están jugando con eso podrían ser los principales de este campeón (o simplemente trolls 😁).
+          rare: Esta es una elección rara, lo que significa que no es probable que veas esto por lo general. Lo que implica que la tasa de ganancia no es tan objetiva.
+          very_rare: Esta es una selección muy rara. La gente no está interesada en jugar esto, y la tasa de ganancias probablemente esté sesgada.
+          odd: Esta es una elección extraña, lo que significa que es una elección fuera del meta o simplemente trolls que se divierten en este parche 😎.
     feedback:
       score:
         negative: "Al jugador no le gustó esta recomendación. 😭"

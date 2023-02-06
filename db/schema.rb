@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_202047) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_05_235513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_202047) do
     t.text "feedback_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tier"
+    t.string "position"
+    t.string "role"
     t.index ["champion_key"], name: "index_recommendations_on_champion_key"
   end
 

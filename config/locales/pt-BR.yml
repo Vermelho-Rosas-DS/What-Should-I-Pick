@@ -11,6 +11,9 @@ pt-BR:
     spanish: 'Español'
     portuguese: 'Português'
   lanes:
+    title:
+      one: Rota
+      other: Rotas
     preffered_lane_question: Com qual rota você mais se identifica?
     no_lane: Não tenho uma rota preferida
     top:
@@ -35,6 +38,9 @@ pt-BR:
       name: Todas posições
       description: Todas posições
   tiers:
+    title:
+      one: Elo
+      other: Elos
     current_tier_question: Qual é o seu elo atual?
     unranked_button: Não possuo elo
     unranked:
@@ -71,6 +77,9 @@ pt-BR:
       name: Todos os elos
       description: Todos os elos
   roles:
+    title:
+      one: Role
+      other: Roles
     tank:
       name: Tanque
       description: "Os tanques são campeões corpo a corpo duros na queda, que sacrificam danos em troca de um poderoso controle de grupo. Embora seja capaz de enfrentar inimigos em combate, o objetivo de um tanque geralmente não é matar os oponentes."
@@ -98,6 +107,31 @@ pt-BR:
       page_title: "Recomendação #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Receba uma recomendação! - What Should I Pick
+    about_the_pick:
+      title: Sobre o pick
+      description: Este pick foi recomendado para jogar na %{lane}, no %{tier} com um campeão %{role}.
+      considerations:
+        win_rate:
+          legendary: Esse pick tem uma taxa de vitória lendária, o que significa que os jogadores estão ganhando jogos com muita frequência com ele.
+          outstanding: Esse pick tem uma taxa de vitória excelente, o que significa que os jogadores tendem a ganhar a maioria dos jogos quando aparecem por aí com ele.
+          very_good: Esse pick tem uma taxa de vitória muito boa, o que significa que os jogadores estão se dando bem na maioria das vezes quem fazem esse pick.
+          good: Esse pick tem uma taxa de vitória boa, o que significa que os jogadores estão se dando bem com ele.
+          ok: Esse pick tem uma taxa de vitória ok, o que significa que os jogadores podem ganhar com uma certa frequência, apesar de perderem algumas partidas também.
+          below_average: Esse pick tem uma taxa de vitória abaixo da média. A menos que você consiga jogar com esse campeão melhor que todo mundo, recomendamos fortemente que você tente uma combinação diferente. E, sim, desculpe, mas esta é a melhor escolha disponível para o que você pediu.
+          poor: Esse pick tem uma taxa de vitória ruim, recomendamos fortemente que você tente uma combinação diferente. E, sim, desculpe, mas esta é a melhor escolha disponível para o que você pediu.
+          terrible: Esse pick é terrível. Nós encorajamos você a tentar uma combinação diferente, dado que esse é o melhor pick para o que você pediu.
+          garbage: Esse pick é... Cara... Apenas esquece isso, pelo amor 🤡
+        pick_rate:
+          fever: Esse pick é uma febre total. Isso significa que, se você tentar, provavelmente terá a mesma taxa de vitória que todo mundo
+          super_popular: Esse é um pick super popular. As pessoas estão realmente empolgadas em jogar com isso. Isso também aumenta a confiabilidade da taxa de vitória. Portanto, você pode presumir que essa taxa de vitória que você vê provavelmente será o seu desempenho.
+          popular: Esse pick é um popular. As pessoas estão empolgadas em jogar com isso. Isso também aumenta a confiabilidade da taxa de vitória. Portanto, você pode presumir que essa taxa de vitória que você vê provavelmente será o seu desempenho, mais ou menos.
+          frequent: Esse é um pick bem frequente. As pessoas estão jogando com isso com muita frequência. Portanto, a taxa de vitórias desse pick provavelmente reflete a realidade.
+          common: Esse é um pick comum. Você verá muito ele no dia-dia. Portanto, considerando isso, a taxa de vitórias desse pick provavelmente reflete a realidade.
+          sporadic: Esse é um pick esporádico. Você ainda pode ver pessoas jogando com isso às vezes, mas a taxa de vitórias pode acabar sendo um pouco diferente para você.
+          forgotten: Esse é um pick esquecido. As pessoas que ainda fazem esse pick devem ser os mains deste campeão (ou apenas trolls 😁).
+          rare: Esse é um pick raro, o que significa que não é provável que você veja ele com frequência. O que implica que a taxa de vitória não é tão confiável.
+          very_rare: Esse é um pick muito raro. As pessoas não estão interessadas em jogar com isso, e a taxa de vitória provavelmente é tendenciosa.
+          odd: Esse é um pick exótico, o que significa que é uma escolha off-meta ou apenas trolls se divertindo com as peculiaridades do patch 😎.
     feedback:
       score:
         negative: "O jogador não curtiu essa recomendação. 😭"

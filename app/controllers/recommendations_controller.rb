@@ -17,12 +17,19 @@ class RecommendationsController < ApplicationController
     position = params[:position]
     role = params[:role]
 
-    statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:, minimum_pick_rate: Statistic.minimum_reliable_pick_rate).first
+    statistic = Statistic.best_statistic_for(tier:, position:, role:)
 
     if statistic.present?
-      champ_key = statistic.champion_key
-      @champ = Champion.where(key: champ_key).first
-      @recommendation = Recommendation.create(champion_key: statistic.champion_key, win_rate: statistic.win_rate, pick_rate: statistic.pick_rate)
+      @champ = Champion.where(key: statistic.champion_key).first
+      @recommendation = Recommendation.create(
+        champion_key: statistic.champion_key,
+        win_rate: statistic.win_rate,
+        pick_rate: statistic.pick_rate,
+        tier: statistic.tier,
+        position: statistic.position,
+        role: statistic.role
+      )
+
       if @recommendation.persisted?
         redirect_to recommendation_path(@recommendation)
       else
@@ -36,11 +43,14 @@ class RecommendationsController < ApplicationController
   def update
     recommendation = Recommendation.find(params[:id])
 
-    bad_request unless params[:feedback_score].to_s.in?(['0', '1'])
-    bad_request if params[:feedback_text].length > 250
+    feedback_score = params[:feedback_score].to_s == '' ? '1' : params[:feedback_score].to_s
+    feedback_text = params[:feedback_text].to_s
 
-    recommendation.feedback_score = params[:feedback_score].to_i
-    recommendation.feedback_text = params[:feedback_text]
+    bad_request unless feedback_score.in?(['0', '1'])
+    bad_request if feedback_text.length > 250
+
+    recommendation.feedback_score = feedback_score.to_i
+    recommendation.feedback_text = feedback_text
 
     recommendation.save
 

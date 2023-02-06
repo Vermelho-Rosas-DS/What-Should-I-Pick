@@ -41,6 +41,9 @@ en:
     spanish: 'Español'
     portuguese: 'Português'
   lanes:
+    title:
+      one: Lane
+      other: Lanes
     preffered_lane_question: Which lane do you most identify with?
     no_lane: I don't have a preferred lane
     top:
@@ -65,6 +68,9 @@ en:
       name: All
       description: All positions
   tiers:
+    title:
+      one: Tier
+      other: Tiers
     current_tier_question: What is your current tier?
     unranked_button: I'm Unranked
     unranked:
@@ -101,6 +107,9 @@ en:
       name: All tiers
       description: All tiers
   roles:
+    title:
+      one: Role
+      other: Roles
     tank:
       name: Tank
       description: "Tanks are tough melee champions who sacrifice damage in exchange for powerful crowd control. While able to engage enemies in combat, a tank's purpose isn't usually to kill opponents"
@@ -129,9 +138,34 @@ en:
     new:
       page_title: Get a recommendation! - What Should I Pick
     show_open_ai_tips: Show tips for this pick
+    about_the_pick:
+      title: About the pick
+      description: This pick was given for playing in the %{lane}, in the %{tier} elo with a %{role} champion.
+      considerations:
+        win_rate:
+          legendary: This pick has a legendary win-rate performance, which means players are winning games really often with that.
+          outstanding: This pick has an outstanding win-rate performance, meaning players tend to win most of the games when they show up with this pick.
+          very_good: This pick has a very good win-rate performance, which means players are having a good time most part of the time they come up with this pick, and they're winning what they need to win.
+          good: This pick has a good win-rate performance, which means players are having a good time most part of the time they come up with this pick.
+          ok: This pick has an okay win-rate performance, which means players can win often despite losing a bit too.
+          below_average: This pick is below the average, unless you can play this champion unlike everyone else, we strongly recommend you try a different combination. And, yes, we're sorry, but this is the best available pick for what you've asked for.
+          poor: This pick has a poor win-rate performance, we strongly recommend you try a different combination. And, yes, we're sorry, but this is the best available pick for what you've asked for.
+          terrible: This pick is terrible. We encourage you to try a different combination, although this still is the best pick for what you've asked for.
+          garbage: This pick is... Bro, just... Don't.
+        pick_rate:
+          fever: This pick is like fever, everyone has had an experience with that. This means if you try it, you're gonna probably end up having the pretty same win-rate performance as everyone else.
+          super_popular: This is a super popular pick. People are really excited about playing with that. This also increases the reliability of the win rate. So you might assume this win rate that you see is probably going to be your performance.
+          popular: This is a popular pick. People are excited about playing with that. This also increases the reliability of the win rate. So you might assume this win rate that you see is probably going to be your performance, more or less.
+          frequent: This is a frequent pick. People are playing with that really often. So, considering that, the win rate of this pick probably reflects the reality.
+          common: This is a common pick. You're going to see that a lot in your daily gameplay. So, considering that, the win rate of this pick probably reflects the reality.
+          sporadic: This is a sporadic pick. You can still see people showing up with that sometimes, but the win rate could end up being a little different for you.
+          forgotten: This is a forgotten pick. People who are still playing with that might be the mains of this champion (or just trolls 😁).
+          rare: This is a rare pick, which means, you're not likely to see this usually. Which implies to the win rate is not so factual.
+          very_rare: This is a very rare pick. People are not interested in playing this, and the win rate probably is biased.
+          odd: This is an odd pick, which means it is an off-meta pick or just trolls having a good time in this patch 😎.
     feedback:
       score:
-        negative: "Player didn't like this recommendation. 😭"
+        negative: "The player didn't like this recommendation. 😭"
         positive: "This recommendation has been approved by the player! 😍 👍"
       form_title: "Did you like this recommendation? Tell us 😀"
       additional_comments:
