@@ -49,8 +49,8 @@ module StatisticsHelper
     end
 
     {
-      label: label,
-      color: color
+      label:,
+      color:
     }.with_indifferent_access
   end
 
@@ -90,8 +90,8 @@ module StatisticsHelper
     end
 
     {
-      label: label,
-      color: color
+      label:,
+      color:
     }.with_indifferent_access
   end
 

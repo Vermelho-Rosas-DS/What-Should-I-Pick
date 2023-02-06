@@ -32,9 +32,7 @@ class Statistic < ApplicationRecord
       statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:, minimum_pick_rate: Statistic.rare_pick_rate, minimum_win_rate: 0.5).first
     end
 
-    if statistic.blank?
-      statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:).first
-    end
+    statistic = Statistic.most_victorious_statistic_for(tier:, position:, role:).first if statistic.blank?
 
     statistic
   end
