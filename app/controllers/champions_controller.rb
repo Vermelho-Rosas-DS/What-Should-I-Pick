@@ -24,9 +24,9 @@ class ChampionsController < ApplicationController
   end
 
   def show
-    @champion = Champion.find(params[:id])
-    not_found if @champion.blank?
+    @champ = Champion.find(params[:id])
+    not_found if @champ.blank?
 
-    @page_title = I18n.t('champions.show.page_title', champion_name: @champion.name)
+    @page_title = I18n.t('champions.show.page_title', champion_name: @champ.name)
   end
 end

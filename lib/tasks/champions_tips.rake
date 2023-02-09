@@ -14,11 +14,22 @@ namespace :chatsonic do
       'input_text' => ""
     }
 
-    Champion.first(3).each do |champion|
+    Champion.find_each do |champion|
+      next if champion.ai_tips.present?
+
+      puts "Fetching data for #{champion.name}"
+
       body['input_text'] = "Summarize the pros and cons of playing #{champion.name} in League of legends. List tips for playing #{champion.name}"
-      binding.pry
       data = HTTParty.post(uri, headers:, body: body.to_json, verify: false)
-      binding.pry
+      response_code = data.response.code.to_i
+
+      if response_code >= 200 && response_code < 300
+        champion.ai_tips = data['message']
+      else
+        puts "Got an error for #{champion.name}. Code: #{response_code}. Message: #{data['message']}"
+      end
+
+      puts "Could not save data on #{champion.name}" unless champion.save
     end
   end
 end

@@ -7,11 +7,14 @@
     height: 100% !important;
 }
 
-.dark-card-thin-top-border {
+.dark-card-no-top-border {
     background-color: #1E1828;
-    border-style: solid;
-    border-top-color: grey;
-    border-top-width: 1px;
+    border-left-style: solid;
+    border-left-color: #2D263E;
+    border-left-width: 3px;
+    border-right-style: solid;
+    border-right-color: #2D263E;
+    border-right-width: 3px;
     height: 100% !important;
 }
 

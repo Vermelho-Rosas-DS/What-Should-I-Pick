@@ -107,6 +107,9 @@ es:
       page_title: "Recomendacione #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Obtener una recomendación! - What Should I Pick
+    ai_tips:
+      title: Consejos generados por Inteligencia Artificial (Beta - Solo en inglés)
+      absence: Parece que todavía no hay consejos de IA disponibles para este campeón. 😥
     about_the_pick:
       title: Sobre la recomendación!
       description: Esta recomendación se hizo por jugar en el %{lane}, en el elo %{tier} con un campeón %{role}.
@@ -182,6 +185,7 @@ es:
     pick_rate: Tasa de selección
     lore: Lore
     official_tips: Consejos Oficiales
+    enemy_tips: Consejos oficiales (Cómo jugar contra)
   home:
     title: ¿Qué debo escoger?
     start_button: ¡Para comenzar!

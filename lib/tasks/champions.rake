@@ -13,10 +13,11 @@ namespace :riot do
       data = JSON.parse(champ.body).with_indifferent_access['data'][name]
       data_pt_br = JSON.parse(champ_pt_br.body).with_indifferent_access['data'][name]
       data_es = JSON.parse(champ_es.body).with_indifferent_access['data'][name]
-      champion = Champion.create(
-        {
+
+      champion = Champion.find_by(key: data['key'])
+      if champion.present?
+        puts "Could not updated #{name}" unless champion.update(
           name: data['name'],
-          key: data['key'],
           title: data['title'],
           title_pt_br: data_pt_br['title'],
           title_es: data_es['title'],
@@ -26,7 +27,7 @@ namespace :riot do
           lore: data['lore'],
           lore_pt_br: data_pt_br['lore'],
           lore_es: data_es['lore'],
-          difficulty: data['difficulty'],
+          difficulty: data['info']['difficulty'],
           role: data['tags'][0].downcase,
           secondary_role: data['tags'][1]&.downcase,
           enemy_tips: data['enemytips'].join(' '),
@@ -36,9 +37,35 @@ namespace :riot do
           ally_tips_pt_br: data_pt_br['allytips'].join(' '),
           ally_tips_es: data_es['allytips'].join(' '),
           name_identifier: name
-        }
-      )
-      puts "Could not save champion #{name}" unless champion.persisted?
+        )
+      else
+        champion = Champion.create(
+          {
+            name: data['name'],
+            key: data['key'],
+            title: data['title'],
+            title_pt_br: data_pt_br['title'],
+            title_es: data_es['title'],
+            blurb: data['blurb'],
+            blurb_pt_br: data_pt_br['blurb'],
+            blurb_es: data_es['blurb'],
+            lore: data['lore'],
+            lore_pt_br: data_pt_br['lore'],
+            lore_es: data_es['lore'],
+            difficulty: data['info']['difficulty'],
+            role: data['tags'][0].downcase,
+            secondary_role: data['tags'][1]&.downcase,
+            enemy_tips: data['enemytips'].join(' '),
+            enemy_tips_pt_br: data_pt_br['enemytips'].join(' '),
+            enemy_tips_es: data_es['enemytips'].join(' '),
+            ally_tips: data['allytips'].join(' '),
+            ally_tips_pt_br: data_pt_br['allytips'].join(' '),
+            ally_tips_es: data_es['allytips'].join(' '),
+            name_identifier: name
+          }
+        )
+        puts "Could not save champion #{name}" unless champion.persisted?
+      end
     end
   end
 end

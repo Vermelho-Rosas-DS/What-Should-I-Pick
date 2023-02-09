@@ -1,11 +1,11 @@
 <div class="container-fluid my-0 p-0 bg-indigo-900" style="background-image: url(<%= image_url 'vayne.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
     <div class="container-fluid shade-bg m-0 p-0" style="min-height: 100vh;">
-        <div class="container-sm dark-card rounded-4 p-0" style="min-height: 100vh;">
+        <div class="container-sm dark-card-no-top-border p-0" style="min-height: 100vh;">
 
             <div class="p-0 mask-champion-img">
-                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%', class: 'rounded-4' %>
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%'%>
             </div>
-            <div class="container-sm rounded-4 text-light px-0 recommendation-info-section">
+            <div class="container-sm text-light px-0 recommendation-info-section">
                 <div class="text-center">
                     <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
                 </div>
@@ -31,7 +31,7 @@
                         <p class="small fw-lighter"><%= @recommendation.created_at %></p>
                     </div>
                 <% end %>
-                <div class="tips-section m-5 px-2">
+                <div class="tips-section my-5 px-2">
                     <div>
                         <h4 class="fw-bold"><%= t('recommendations.about_the_pick.title') %></h4>
                         <ul class="fw-light">
@@ -52,8 +52,18 @@
                         </div>
                     <% end %>
                 </div>
+                <div class="p-5 ai-tips-section">
+                    <h4 class="text-center fw-bold mb-4"><%= t('recommendations.ai_tips.title') %></h4>
+                    <p class="fw-light"><%= @champ.ai_tips.present? ? @champ.ai_tips.gsub("\n", "<br>").html_safe : t('recommendations.ai_tips.absence') %></p>
+                </div>
+                <% if @champ.enemy_tips.present? %>
+                    <div>
+                        <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                        <p class="fw-light"><%= @champ.enemy_tips %></p>
+                    </div>
+                <% end %>
                 <% if @recommendation.feedback_score.blank? %>
-                    <div class="d-flex flex-column justify-content-center align-items-center fw-light p-5 feedback-section">
+                    <div class="mt-5 d-flex flex-column justify-content-center align-items-center fw-light p-5 feedback-section">
                         <div data-controller="recommendation-feedback">
                             <p><%= t('recommendations.feedback.form_title') %></p>
                             <div class="mb-2 text-center">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_05_235513) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_190115) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_05_235513) do
     t.string "name_identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "ai_tips"
     t.index ["key"], name: "index_champions_on_key", unique: true
   end
 
