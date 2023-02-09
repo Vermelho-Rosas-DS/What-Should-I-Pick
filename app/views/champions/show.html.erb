@@ -29,7 +29,15 @@
                 </div>
                 <div class="p-5 ai-tips-section">
                     <h4 class="text-center fw-bold mb-4"><%= t('recommendations.ai_tips.title') %></h4>
-                    <section class="fw-light"><%= @champ.ai_tips.present? ? render_ai_tips(@champ.ai_tips) : t('recommendations.ai_tips.absence') %></section>
+                    <section class="fw-light">
+                        <% if @champ.ai_tips.present? %>
+                            <% @champ.ai_tips.split("\n").each do |tip| %>
+                                <p><%= tip %></p>
+                            <% end %>
+                        <% else %>
+                            <%= t('recommendations.ai_tips.absence') %>
+                        <% end %>
+                    </section>
                 </div>
             </div>
         </div>
