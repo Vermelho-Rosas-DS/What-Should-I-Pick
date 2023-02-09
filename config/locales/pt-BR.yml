@@ -107,6 +107,12 @@ pt-BR:
       page_title: "Recomendação #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Receba uma recomendação! - What Should I Pick
+    ai_tips:
+      absence: Parece que ainda não há dicas de IA disponíveis para este campeão. 😥
+      title: Dicas geradas por Inteligência Artificial (Beta - Apenas em inglês)
+    riot_tips:
+      ally: Como jogar com %{champion_name} - Dicas básicas
+      enemy: Como jogar contra %{champion_name} - Dicas básicas
     about_the_pick:
       title: Sobre o pick
       description: Este pick foi recomendado para jogar na %{lane}, no %{tier} com um campeão %{role}.
@@ -181,7 +187,6 @@ pt-BR:
     win_rate: Taxa de vitória
     pick_rate: Taxa de escolha
     lore: Lore
-    official_tips: Dicas oficiais
   home:
     title: "O que devo escolher?"
     start_button: Começar!

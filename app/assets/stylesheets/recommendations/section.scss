@@ -20,6 +20,9 @@
 .tips-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 .recommendation-info-section {
@@ -51,6 +54,8 @@
     .tips-section {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .tips-vr {
@@ -84,4 +89,8 @@
 
 .recommendation-negative {
     background-image: linear-gradient(45deg, #291340, #4d1a1a, #3b1b23);
+}
+
+.ai-tips-section {
+    background-image: linear-gradient(45deg, #55174575, #1d3666a3, #124148);
 }

@@ -137,7 +137,12 @@ en:
       page_title: "Recommendation #%{recommendation_id} - What Should I Pick"
     new:
       page_title: Get a recommendation! - What Should I Pick
-    show_open_ai_tips: Show tips for this pick
+    ai_tips:
+      title: Artificial Intelligence generated tips (Beta)
+      absence: It seems like there are no AI tips available for this champion yet. 😥
+    riot_tips:
+      ally: How to play %{champion_name} - Basic tips
+      enemy: How to counter %{champion_name} - Basic tips
     about_the_pick:
       title: About the pick
       description: This pick was given for playing in the %{lane}, in the %{tier} elo with a %{role} champion.
@@ -212,7 +217,6 @@ en:
     win_rate: Win rate
     pick_rate: Pick rate
     lore: Lore
-    official_tips: Official tips
   home:
     start_button: Let's start!
     title: "What Should I Pick?"

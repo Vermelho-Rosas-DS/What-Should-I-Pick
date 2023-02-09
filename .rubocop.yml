@@ -35,7 +35,7 @@ Security/JSONLoad:
 Style/WordArray:
   Enabled: false
 Metrics/BlockLength:
-  Max: 50
+  Max: 100
   Exclude:
     - './test/**/*.rb'
 Rails/Output:

@@ -1,45 +1,45 @@
-<div class="container-sm">
-    <h2><%= @champion.name %></h2>
-    <ul>
-        <h3>Champion Info</h3>
-        <li>
-            Title: <%= @champion.title %>
-        </li>
-        <li>
-            Blurb: <%=@champion.blurb%>
-        </li>
-        <li>
-            Lore: <%=@champion.lore%>
-        </li>
-        <li>
-            Difficulty: <%=@champion.difficulty%>
-        </li>
-        <li>
-            Role: <%=@champion.role%>
-        </li>
-        <li>
-            Enemy Tips: <%=@champion.enemy_tips%>
-        </li>
-        <li>
-            Ally tips: <%=@champion.ally_tips%>
-        </li>
-    </ul>
-    <ul>
-        <h3>Champion statistics</h3>
-        <li>
-            Win Rate: <%= (@champion.statistics.order(:pick_rate).last.win_rate * 100).ceil(2) %>%
-        </li>
-        <li>
-            Pick Rate: <%= (@champion.statistics.order(:pick_rate).last.pick_rate * 100).ceil(2) %>%
-        </li>
-        <li>
-            Kill: <%= @champion.statistics.order(:pick_rate).last.kill %>
-        </li>
-        <li>
-            Death: <%= @champion.statistics.order(:pick_rate).last.death %>
-        </li>
-        <li>
-            Assist: <%= @champion.statistics.order(:pick_rate).last.assist %>
-        </li>
-    </ul>
+<div class="container-fluid my-0 p-0 bg-indigo-900" style="background-image: url(<%= image_url 'vayne.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+    <div class="container-fluid shade-bg m-0 p-0" style="min-height: 100vh;">
+        <div class="container-sm dark-card-no-top-border p-0" style="min-height: 100vh;">
+
+            <div class="p-0 mask-champion-img">
+                <%= image_tag "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{@champ.name_identifier}_0.jpg", alt: "", width: '100%'%>
+            </div>
+            <div class="container-sm text-light px-0 recommendation-info-section">
+                <div class="text-center">
+                    <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
+                </div>
+                <div class="pick-label-section mb-4 mx-2">
+                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                </div>
+                <div class="tips-section my-5 px-2">
+                    <div>
+                        <h4 class="fw-bold"><%= t('common.lore') %></h4>
+                        <p class="fw-light small"><%= @champ.lore %></p>
+                    </div>
+                    <% if @champ.ally_tips.present? %>
+                        <div class="hstack gap-4">
+                            <div class="vr tips-vr"></div>
+                            <div>
+                                <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                                <p class="fw-light"><%= @champ.ally_tips %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="p-5 ai-tips-section">
+                    <h4 class="text-center fw-bold mb-4"><%= t('recommendations.ai_tips.title') %></h4>
+                    <section class="fw-light">
+                        <% if @champ.ai_tips.present? %>
+                            <% @champ.ai_tips.split("\n").each do |tip| %>
+                                <p><%= tip %></p>
+                            <% end %>
+                        <% else %>
+                            <%= t('recommendations.ai_tips.absence') %>
+                        <% end %>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
