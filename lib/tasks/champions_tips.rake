@@ -25,6 +25,7 @@ namespace :chatsonic do
 
       if response_code >= 200 && response_code < 300
         champion.ai_tips = data['message']
+        puts "Success: #{data['message']}"
       else
         puts "Got an error for #{champion.name}. Code: #{response_code}. Message: #{data['message']}"
       end

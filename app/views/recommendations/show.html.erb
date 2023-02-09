@@ -46,7 +46,7 @@
                         <div class="hstack gap-4">
                             <div class="vr tips-vr"></div>
                             <div>
-                                <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                                <h4 class="fw-bold"><%= t('recommendations.riot_tips.ally', champion_name: @champ.name) %></h4>
                                 <p class="fw-light"><%= @champ.ally_tips %></p>
                             </div>
                         </div>
@@ -57,8 +57,8 @@
                     <p class="fw-light"><%= @champ.ai_tips.present? ? @champ.ai_tips.gsub("\n", "<br>").html_safe : t('recommendations.ai_tips.absence') %></p>
                 </div>
                 <% if @champ.enemy_tips.present? %>
-                    <div>
-                        <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                    <div class="container-sm p-5">
+                        <h4 class="fw-bold"><%= t('recommendations.riot_tips.enemy', champion_name: @champ.name) %></h4>
                         <p class="fw-light"><%= @champ.enemy_tips %></p>
                     </div>
                 <% end %>
