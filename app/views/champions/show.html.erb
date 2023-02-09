@@ -29,7 +29,7 @@
                 </div>
                 <div class="p-5 ai-tips-section">
                     <h4 class="text-center fw-bold mb-4"><%= t('recommendations.ai_tips.title') %></h4>
-                    <p class="fw-light"><%= @champ.ai_tips.present? ? @champ.ai_tips.gsub("\n", "<br>").html_safe : t('recommendations.ai_tips.absence') %></p>
+                    <section class="fw-light"><%= @champ.ai_tips.present? ? render_ai_tips(@champ.ai_tips) : t('recommendations.ai_tips.absence') %></section>
                 </div>
             </div>
         </div>
