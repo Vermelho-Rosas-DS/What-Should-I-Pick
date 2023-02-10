@@ -9,8 +9,22 @@
                 <div class="text-center">
                     <h1 class="display-1 fw-bold"><%= @champ.name %></h1>
                 </div>
-                <div class="pick-label-section mb-4 mx-2">
+                <div class="pick-label-section">
+                    <div class="mx-1 text-center">
+                        <span><%= t('common.win_rate') %>:</span>
+                        <span class="font-monospace"><%= (@statistic.win_rate * 100).ceil(2) %> %</span>
+                        <span><%= render_win_rate_badge((@statistic.win_rate * 100).ceil(2)) %></span>
+                    </div>
                     <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                    <div class="mx-1 text-center">
+                        <span><%= render_pick_rate_badge((@statistic.pick_rate * 100).ceil(2)) %></span>
+                        <span><%= t('common.pick_rate') %>:</span>
+                        <span class="font-monospace"><%= (@statistic.pick_rate * 100).ceil(2) %> %</span>
+                    </div>
+                </div>
+                <div class="hstack gap-2 my-4 mx-2 justify-content-center">
+                    <%= image_tag("#{@statistic.position}_icon.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'left', 'bs-title' => t("lanes.#{@statistic.position}.name")}) %>
+                    <%= image_tag("#{@statistic.role}_role_image.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'right', 'bs-title' => t("roles.#{@statistic.role}.name")})  %>
                 </div>
                 <div class="tips-section my-5 px-2">
                     <div>
@@ -21,7 +35,7 @@
                         <div class="hstack gap-4">
                             <div class="vr tips-vr"></div>
                             <div>
-                                <h4 class="fw-bold"><%= t('common.official_tips') %></h4>
+                                <h4 class="fw-bold"><%= t('recommendations.riot_tips.ally', champion_name: @champ.name) %></h4>
                                 <p class="fw-light"><%= @champ.ally_tips %></p>
                             </div>
                         </div>
@@ -39,6 +53,12 @@
                         <% end %>
                     </section>
                 </div>
+                <% if @champ.enemy_tips.present? %>
+                    <div class="container-sm p-5">
+                        <h4 class="fw-bold"><%= t('recommendations.riot_tips.enemy', champion_name: @champ.name) %></h4>
+                        <p class="fw-light"><%= @champ.enemy_tips %></p>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
