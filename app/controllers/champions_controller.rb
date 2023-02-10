@@ -25,8 +25,10 @@ class ChampionsController < ApplicationController
 
   def show
     @champ = Champion.find(params[:id])
+
     not_found if @champ.blank?
 
+    @statistic = @champ.most_frequent_statistic
     @page_title = I18n.t('champions.show.page_title', champion_name: @champ.name)
   end
 end
