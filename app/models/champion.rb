@@ -7,7 +7,7 @@ class Champion < ApplicationRecord
   attr_accessor :most_frequent_statistic
 
   def update_most_frequent_statistic
-    @most_frequent_statistic = statistics.select{|statistic| statistic.tier_all? }.sort{ |sa, sb| sa.pick_rate <=> sb.pick_rate }.last
+    @most_frequent_statistic = statistics.select(&:tier_all?).max { |sa, sb| sa.pick_rate <=> sb.pick_rate }
   end
 
   validates :key, uniqueness: true

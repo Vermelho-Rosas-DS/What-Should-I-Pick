@@ -1,8 +1,13 @@
 <div class="container-fluid px-0" style="background-image: url(<%= image_url 'Lux_17.jpg' %>); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
     <div class="container-fluid top-gradient px-0" data-controller="new-recommendation-form">
         <div class="d-flex flex-column align-items-center justify-content-center options-section">
-            <div class="typewriter my-5">
-                <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
+            <div class="my-5">
+                <div class="typewriter">
+                    <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
+                </div>
+                <div class="container-sm text-center no-typewriter">
+                    <h1 class="display-6 fw-bold"><%= t('lanes.preffered_lane_question') %></h1>
+                </div>
             </div>
             <div class="container my-3">
                 <div class="grid-container position-options-grid">
@@ -24,8 +29,13 @@
             <a href="#choose-elo" class="btn btn-lg btn-primary fw-bold my-4 hoverable-grayscaled-card" data-action="new-recommendation-form#selectPosition" data-new-recommendation-form-target="position" value="all"><%= t('lanes.no_lane') %></a>
         </div>
         <div id="choose-elo" class="d-flex flex-column align-items-center justify-content-center options-section my-5">
-            <div class="typewriter my-5">
-                <h1 class="display-6 fw-bold"><%= t('tiers.current_tier_question') %></h1>
+            <div class="my-5">
+                <div class="typewriter">
+                    <h1 class="display-6 fw-bold"><%= t('tiers.current_tier_question') %></h1>
+                </div>
+                <div class="no-typewriter text-center">
+                    <h1 class="display-6 fw-bold"><%= t('tiers.current_tier_question') %></h1>
+                </div>
             </div>
             <div class="container my-3">
                 <div class="grid-container tier-options-grid">
@@ -44,8 +54,13 @@
             </div>
         </div>
         <div id="choose-role" class="d-flex flex-column align-items-center justify-content-center options-section my-5">
-            <div class="typewriter my-5">
-                <h1 class="display-6 fw-bold"><%= t('roles.preferred_role_question') %></h1>
+            <div class="my-5">
+                <div class="typewriter">
+                    <h1 class="display-6 fw-bold"><%= t('roles.preferred_role_question') %></h1>
+                </div>
+                <div class="no-typewriter text-center">
+                    <h1 class="display-6 fw-bold"><%= t('roles.preferred_role_question') %></h1>
+                </div>
             </div>
             <div class="container my-3">
                 <div class="grid-container role-options-grid">

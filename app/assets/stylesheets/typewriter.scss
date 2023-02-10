@@ -21,3 +21,17 @@
     50% { border-color: rgb(110, 107, 116); }
 }
 //
+
+.no-typewriter h1 {
+    display: none;
+}
+
+@media only screen and (max-width: 960px){
+    .typewriter h1 {
+        display: none;
+    }
+
+    .no-typewriter h1 {
+        display: block;
+    }
+}
