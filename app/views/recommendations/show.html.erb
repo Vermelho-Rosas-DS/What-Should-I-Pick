@@ -15,7 +15,7 @@
                         <span class="font-monospace"><%= (@recommendation.win_rate * 100).ceil(2) %> %</span>
                         <span><%= render_win_rate_badge((@recommendation.win_rate * 100).ceil(2)) %></span>
                     </div>
-                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.to_s.titleize %></h4>
                     <div class="mx-1 text-center">
                         <span><%= render_pick_rate_badge((@recommendation.pick_rate * 100).ceil(2)) %></span>
                         <span><%= t('common.pick_rate') %>:</span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="hstack gap-2 my-4 mx-2 justify-content-center">
-                    <%= image_tag("#{@recommendation.position}_icon.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'left', 'bs-title' => t("lanes.#{@recommendation.position}.name")}) %>
+                    <%= image_tag("#{@recommendation.position.to_s == 'adc' ? 'bot' : @recommendation.position.to_s}_icon.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'left', 'bs-title' => t("lanes.#{@recommendation.position}.name")}) %>
                     <%= image_tag("#{@recommendation.role}_role_image.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'right', 'bs-title' => t("roles.#{@recommendation.role}.name")})  %>
                 </div>
                 <% if @recommendation.feedback_score.present? %>

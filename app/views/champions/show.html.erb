@@ -15,7 +15,7 @@
                         <span class="font-monospace"><%= (@statistic.win_rate * 100).ceil(2) %> %</span>
                         <span><%= render_win_rate_badge((@statistic.win_rate * 100).ceil(2)) %></span>
                     </div>
-                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.titleize %></h4>
+                    <h4 class="fw-bold display-6 text-center"><%= @champ.title.to_s.titleize %></h4>
                     <div class="mx-1 text-center">
                         <span><%= render_pick_rate_badge((@statistic.pick_rate * 100).ceil(2)) %></span>
                         <span><%= t('common.pick_rate') %>:</span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="hstack gap-2 my-4 mx-2 justify-content-center">
-                    <%= image_tag("#{@statistic.position}_icon.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'left', 'bs-title' => t("lanes.#{@statistic.position}.name")}) %>
+                    <%= image_tag("#{@statistic.position.to_s == 'adc' ? 'bot' : @statistic.position.to_s}_icon.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'left', 'bs-title' => t("lanes.#{@statistic.position}.name")}) %>
                     <%= image_tag("#{@statistic.role}_role_image.svg", width: 65, class: 'p-2 rounded-circle', data: {'bs-toggle' => 'tooltip', 'bs-placement' => 'right', 'bs-title' => t("roles.#{@statistic.role}.name")})  %>
                 </div>
                 <div class="tips-section my-5 px-2">
