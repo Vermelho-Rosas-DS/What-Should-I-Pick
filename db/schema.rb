@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_190115) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "champions", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_001938) do
+  create_table "champions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "key"
     t.string "title"
@@ -42,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_190115) do
     t.index ["key"], name: "index_champions_on_key", unique: true
   end
 
-  create_table "recommendations", force: :cascade do |t|
+  create_table "recommendations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "champion_key"
     t.float "win_rate"
     t.float "pick_rate"
@@ -56,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_190115) do
     t.index ["champion_key"], name: "index_recommendations_on_champion_key"
   end
 
-  create_table "statistics", force: :cascade do |t|
+  create_table "statistics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "tier"
     t.integer "position"
     t.float "win_rate"
@@ -72,8 +69,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_190115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "champion_id"
+    t.string "period"
     t.index ["champion_id"], name: "index_statistics_on_champion_id"
-    t.index ["tier", "position", "region", "champion_id"], name: "index_unique_statistic_for_champion", unique: true
+    t.index ["tier", "position", "region", "champion_id", "period"], name: "index_unique_statistic_for_champion", unique: true
   end
 
   add_foreign_key "recommendations", "champions", column: "champion_key", primary_key: "key"

@@ -15,16 +15,18 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8mb4
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+
 development:
   <<: *default
   database: What_Should_I_Pick_development
-
+  username: whatshouldipick
+  password: whatshouldipick
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -58,9 +60,8 @@ development:
 test:
   <<: *default
   database: what_should_i_pick_test
-  host: <%= ENV["PGHOST"] %>
-  username: <%= ENV["PGUSER"] %>
-  password: <%= ENV["TESTS_DATABASE_PASSWORD"] %>
+  username: whatshouldipick
+  password: whatshouldipick
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
