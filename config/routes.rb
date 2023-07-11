@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     resources :champions, only: [:index, :show]
     resources :recommendations, only: [:create, :new, :show, :update]
+    get 'champions/word_cloud/:position', to: 'champions#word_cloud', as: 'champions_word_cloud'
     root 'application#home'
   end
 end

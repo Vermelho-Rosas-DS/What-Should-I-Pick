@@ -38,6 +38,8 @@ gem 'font-awesome-sass'
 
 gem 'pry-nav'
 
+gem 'rmagick', '~> 2.14.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -88,3 +90,6 @@ gem 'bootstrap'
 gem 'sassc-rails'
 
 gem 'rails-i18n', '~> 7.0.0'
+
+gem "magic_cloud", "~> 0.0.4"
+

@@ -23,6 +23,10 @@ class ChampionsController < ApplicationController
     @statistics.reverse! if sort_type != 'asc'
   end
 
+  def word_cloud
+    @position = params[:position].presence || 'all'
+  end
+
   def show
     @champ = Champion.find(params[:id])
 
